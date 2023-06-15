@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab03</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      table {
+        border: 2px solid black;
+        width: 500px;
+        height: 500px;
+        margin: auto;
+      }
+      table tr td {
+        border: 1px solid black;
+      }
+      table td {
+        width: 90px;
+        height: 90px;
+      }
+      .box {
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+        border-radius: 50%;
+        margin: auto;
+        display: flex;
+        /* 主軸置中 */
+        justify-content: center;
+        /* 次軸(交錯軸)置中 */
+        align-items: center;
+      }
+      .box2 {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tree Traversal</h1>
+    </header>
+    <div class="container">
+      <table>
+        <tr>
+          <td></td>
+          <td>
+            <div class="box">
+              <div class="box2"></div>
+            </div>
+          </td>
+          <td class="stop"></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="stop"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="stop"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="stop"></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="stop"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <!-- <script src="all.js"></script> -->
+    <script>
+      $(function () {
+        $("td").on("click", function () {
+          // children()
+          // $(this).children(".box").css("background", "lightblue");
+          // $(this).children().children(".box2").css("background", "lightblue");
+          // $(this).find(".box2").css("background", "red");
+
+          // next()
+          // $(this).next().css("background", "lightgreen");
+          // $(this).nextAll().css("background", "lightgreen");
+          // $(this).nextUntil(".stop").css("background", "lightgreen");
+
+          // prev()
+          // $(this).prev().css("background", "lightblue");
+          // $(this).prevAll().css("background", "lightblue");
+          // $(this).prevUntil(".stop").css("background", "lightblue");
+
+          // mix
+          // $(this).next().css("background", "lightgreen");
+          // $(this).prev().css("background", "lightblue");
+          // end()
+          // $(this)
+          //   .css("background", "white")
+          //   .next()
+          //   .css("background", "lightgreen")
+          //   .end()
+          //   .prev()
+          //   .css("background", "lightblue");
+
+          // siblings()
+          $(this)
+            .css("background", "white")
+            .siblings()
+            .css("background", "pink");
+        });
+
+        $(".box").on("click", function () {
+          // parent()
+          // $(this).parent().css("background", "pink");
+          // $(this).parent().parent().css("background", "pink");
+          console.log($(this).parents());
+          // $(this).parentsUntil("table").css("background", "pink");
+          // $(this).closest("tr").css("background", "red");
+        });
+      });
+    </script>
+  </body>
+</html>

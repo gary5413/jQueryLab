@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab04</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Event</h1>
+    </header>
+    <div class="container">
+      <input type="text" id="input" placeholder="請輸入" />
+      <br />
+      <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <!-- <script src="all.js"></script> -->
+    <script>
+      $(function () {
+        // $("#input").on("click", function (event) {
+        //   // console.log(event.type);
+        //   // console.log(event.which);
+        // });
+
+        // $("#input").click(function () {
+        //   console.log(event.type);
+        // });
+        $("#textarea").mousemove(function () {
+          // console.log(`pageX:${event.pageX},pageY:${event.pageY}`);
+        });
+        /* 
+        
+        */
+        $('#input').on('click',()=>{
+          // console.log('on arrow click');
+          // console.log(this)
+        })
+        $('#input').click(()=>{
+          // console.log('click arrow')
+          // console.log(this)
+        })
+      });
+    </script>
+  </body>
+</html>

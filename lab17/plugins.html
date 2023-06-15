@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="../lab17/js/lightbox2-dev/dist/css/lightbox.css"
+    />
+    <link rel="stylesheet" href="../lab17/js/vegas2.5.4/vegas.css" />
+    <style>
+      img {
+        width: 300px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Demo</h1>
+    </header>
+    <div class="container">
+      <a href="../lab12/imgs/view1.jpg" data-lightbox="roadtrip"
+        ><img src="../lab12/imgs/view1.jpg" alt=""
+      /></a>
+      <a href="../lab12/imgs/view2.jpg" data-lightbox="roadtrip"
+        ><img src="../lab12/imgs/view2.jpg" alt=""
+      /></a>
+      <a href="../lab12/imgs/view3.jpg" data-lightbox="roadtrip"
+        ><img src="../lab12/imgs/view3.jpg" alt=""
+      /></a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="../lab17/js/lightbox2-dev/dist/js/lightbox.js"></script>
+    <script src="../lab17/js/vegas2.5.4/vegas.js"></script>
+    <!-- <script src="all.js"></script> -->
+    <script>
+      $(function () {
+        // vegas js
+        $("#example, body").vegas({
+          slides: [
+            { src: "../lab12/imgs/view1.jpg" },
+            { src: "../lab12/imgs/view2.jpg" },
+            { src: "../lab12/imgs/view3.jpg" },
+            { src: "../lab12/imgs/view4.jpg" },
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>

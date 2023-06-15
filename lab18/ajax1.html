@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">AJAX</button>
+      <ul id="data">
+        <li></li>
+      </ul>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+            let url='https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-63CDCB13-6239-4243-9B3B-D5D107C9AFCD';
+            $('#btn').on('click',function(){
+                $.ajax({
+                    url:url,
+                    dataType:"json",
+                    success:function(respones){
+                        // console.log(respones);
+                        console.log(respones.records.location);
+                        $.each(respones.records.location,function(index,ele){
+                            // console.log(ele.locationName);
+                            $('#data').append(`
+                                <li>${ele.locationName}</li>
+                                <li>${ele.weatherElement[0].time[0].startTime}</li>
+                                <li>${ele.weatherElement[0].time[0].parameter.parameterName}</li>
+                            `);
+                        });
+                    }
+                });
+
+            });
+        });
+    </script>
+</body>
+</html>

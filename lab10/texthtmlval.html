@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab10</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>text() html() val()</h1>
+    </header>
+    <div class="container">
+      <h3 id="source">Hello jQuery</h3>
+      <h3 id="target"></h3>
+      <button id="getText">get Text</button>
+      <button id="setText">set Text</button>
+      <hr />
+      <p><b>click</b> to <span>change</span> the html</p>
+      <button id="setHtml">set Html</button>
+      <hr />
+      <input type="number" id="num1" />
+      <select name="" id="calculate">ˋ吧
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <input type="number" id="num2" />
+      <button id="result">=</button>
+      <input type="text" readonly id="show" />
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <!-- <script src="all.js"></script> -->
+    <script>
+      $(function () {
+        // val()
+        // Number(xxx.val())
+        $("#result").on("click", function () {
+          let number1 = Number($("#num1").val());
+          let number2 = Number($("#num2").val());
+          // console.log(number1);
+          // console.log(number2);
+          let calculate = $("#calculate").val();
+          // console.log(calculate);
+          let result = 0;
+          switch (calculate) {
+            case "+":
+              result = number1 + number2;
+              break;
+            case "-":
+              result = number1 - number2;
+              break;
+            case "*":
+              result = number1 * number2;
+              break;
+            case "/":
+              result = number1 / number2;
+              break;
+          }
+          console.log(result);
+          $("#show").val(result);
+        });
+        // text()
+        $("#getText").on("click", function () {
+          let content = $("#source").text();
+          $("#target").text(content);
+        });
+        $("#setText").on("click", function () {
+          $("#source").text("set Text jQuery");
+        });
+        // html()
+        $("p").one("click", function () {
+          let htmlContent = $("p").html();
+          $(this).text(htmlContent);
+        });
+        $("#setHtml").on("click", function () {
+          $("p").html("<h1>set Html</h1>");
+        });
+      });
+    </script>
+  </body>
+</html>
