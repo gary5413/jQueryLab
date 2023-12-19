@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab08 </title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        div.resize{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+        }
+        img{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            /* 浮動 */
+            float: left;
+        }
+        body{
+            /* vh view hight 螢幕可視範圍高度百分比 */
+            height: 300vh;
+        }
+        .con{
+            width: 100px;
+            height: 100px;
+            /* 溢出內容 */
+            overflow: auto;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+        #btn{
+            right: 10px;
+            bottom: 10px;
+            position: fixed;
+        }
+        .progress{
+            background: lightgray;
+            position: fixed;
+            width: 100%;
+            height: 30px;
+            top: 0;
+            left:0;
+        }
+        .progress-percent{
+            height: 30px;
+            background: lightgreen;
+            width: 0%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>jQuery scroll & resize</h1>
+    </header>
+    <div class="progress">
+        <div class="progress-percent"></div>
+    </div>
+    <div id="container">
+        <div class="con">
+            <div class="box"></div>
+        </div>
+        <br>
+        <div id="resize" class="resize">
+            <img src="./img/car.jpg" alt="">
+        </div>
+    
+        <button type="button" id="btn">go top</button>
+    
+    </div>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // 
+            let pageHeight=$('body').height()
+            console.log(`pageHight:${pageHeight}`)
+            let winHight=$(window).height()
+            $(window).scroll(function(){
+                let winTop=$(this).scrollTop();
+                // console.log(winTop)
+                let scrollPercent=Math.round((winTop/(pageHeight-winHight))*100)+'%'
+                console.log(scrollPercent)
+                $('.progress-percent').css('width',scrollPercent)
+            })
+            
+            //scroll
+            $('.con').scroll(function(){
+                console.log('top:'+$(this).scrollTop()+',left:'+$(this).scrollLeft())
+            })
+            // scrollTop()
+            $('#btn').click(function(){
+                $(window).scrollTop(0)
+                // $(window).offset()
+            })
+            //resize
+            $(window).resize(function(){
+                // console.log('resize')
+                // console.log(`width: ${$(this).width()} ,height: ${$(this).height()}`)
+            })
+            resize_img()
+            $(window).resize(resize_img)
+            function resize_img() {
+                let winW=$(window).width()
+                let winH=$(window).height()
+                let divW=$('#resize').width()
+                let divH=$('#resize').height()
+                // console.log(winH)
+                // console.log(winW)
+                let left=(winW-divW)/2
+                let top=(winH-divH)/2
+                $('#resize').css({
+                    'left':left,
+                    'top':top
+                })
+            }
+            // 
+
+
+        })
+    </script>
+</body> 
+</html>

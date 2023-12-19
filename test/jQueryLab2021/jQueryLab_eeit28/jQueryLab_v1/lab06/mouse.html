@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse event</title>
+    <style>
+        .container {
+            height: 100px;
+            width: 500px;
+            padding: 10px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+        .p {
+            background-color: lightcoral;
+        }
+
+        .span {
+            background-color: lightgreen;
+        }
+        div.out {
+            width: 40%;
+            height: 250px;
+            margin: 0 15px;
+            background-color: #d6edfc;
+            float: left;
+        }
+        div.in {
+            width: 60%;
+            height: 60%;
+            background-color: #fc0;
+            margin: 10px auto;
+        }
+        p.box {
+            line-height: 1em;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        div element
+        <P class="p">p element <span class='span' style="font-style: italic;">span element</span></P>
+    </div>
+    <button class="btn">Button</button>
+    <br>
+    <div class="box out overout">
+        <span>move your mouse</span>
+        <div class="in">
+        </div>
+    </div>
+
+    <div class="box out enterleave">
+        <span>move your mouse</span>
+        <div class="in">
+        </div>
+    </div>
+    <script src='https://code.jquery.com/jquery-3.5.1.js'></script>
+    <script>
+        $(function () {
+            // $('.btn').click(function(){
+            //     console.log('click')
+            // })
+            // $('.btn').dblclick(function(){ //比較少用 手機板
+            //     console.log('double click')
+            // })
+            // $('.btn').contextmenu(function(){//比較少用 
+            //     console.log('contextmenu')
+            // })
+            $('.btn').mousedown(function(){
+                console.log('mousedown')
+            })
+            $('.btn').mouseup(function(){
+                console.log('mouseup')
+            })
+            // $('.btn').mouseenter(function(){ 
+            //     console.log('mouseenter')
+            // })
+            // $('.btn').mouseleave(function(){
+            //     console.log('mouseleave')
+            // })
+            // .hover() .mouseenter().mouseleave() 
+
+            let count_overout=0;
+            $('div.in').mouseover(function(){
+                event.stopPropagation();
+
+            })
+            $('div.overout').mouseover(function(){
+                count_overout+=1;
+                $(this).find('span').text('mouse over X'+count_overout);
+            }).mouseout(function(){
+                
+                // $(this).find('span').text('mouse out');
+            })
+            
+            let count_enterleave=0;
+            $('div.enterleave').mouseenter(function(){
+                count_enterleave+=1;
+                $(this).find('span').text(`mouse enter X ${count_enterleave} `)
+            }).mouseleave(function(){
+                // $(this).find('span').text('mouse leave')
+            });
+
+            $('p').hover(function () {
+                $(this).append($('<span>***</span>'));
+                // console.log('123')
+            }, function () {
+                $(this).find('span').last().remove();
+                // console.log('456')
+            })
+
+        })
+    </script>
+</body>
+
+</html>

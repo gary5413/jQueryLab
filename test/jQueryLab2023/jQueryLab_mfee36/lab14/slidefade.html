@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab14</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>show() slideUp() fadeOut()</h1>
+    </header>
+    <div class="container">
+      <button id="hide">hide</button>
+      <button id="show">show</button>
+      <button id="toggle">toggle</button>
+      <br />
+      <button id="slideUp">slide up</button>
+      <button id="slideDown">slide Down</button>
+      <button id="slideToggle">slide toggle</button>
+      <br />
+      <button id="fadeOut">fade out</button>
+      <button id="fadeIn">fade in</button>
+      <button id="fadeToggle">fade toggle</button>
+      <hr />
+      <div class="box"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <!-- <script src="all.js"></script> -->
+    <script>
+      $(function () {
+        // show
+        $("#hide").on("click", function () {
+          $(".box").hide(1000);
+        });
+        $("#show").click(function () {
+          $(".box").show(1000);
+        });
+        $("#toggle").click(function () {
+          $(".box").toggle(900,function(){
+            $(this).css("background", "pink");
+          });
+        });
+        // slideUp
+        $("#slideUp").click(function () {
+          $(".box").slideUp(1000);
+        });
+        $("#slideDown").click(function () {
+          $(".box").slideDown(1000);
+        });
+        $("#slideToggle").click(function () {
+          $(".box").slideToggle(1000);
+        });
+        // fadeOut
+        $("#fadeOut").click(function () {
+          $(".box").fadeOut(1000);
+        });
+        $("#fadeIn").click(function () {
+          $(".box").fadeIn(1000, function () {
+            $(this).css("background", "pink");
+          });
+        });
+        $("#fadeToggle").click(function () {
+          $(".box").fadeToggle(1000);
+        });
+      });
+    </script>
+  </body>
+</html>

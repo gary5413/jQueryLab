@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/jQueryLab_eeit33/style.css">
+    <style>
+        
+        .resize{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+        }
+        img{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            float: left;
+        }
+        .con{
+            width: 100px;
+            height: 100px;
+            /* 溢出內容 */
+            overflow: auto;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+        body{
+            /* vh view hight 螢幕可視範圍高度百分比 */
+            height: 300vh;
+        }
+        .progress{
+            background-color: lightgray;
+            position:fixed;
+            width: 100%;
+            height: 30px;
+            top: 0;
+            left: 0;
+        }
+        .progress-percent{
+            height: 30px;
+            background-color: lightgreen;
+            width: 0%;
+        }
+        #btn{
+            right: 10px;
+            bottom:10px;
+            position: fixed;
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>scroll & resize</h1>
+    </header>
+    <div class="progress">
+        <div class="progress-percent"></div>
+    </div>
+    <div id="container">
+        <div class="con">
+            <div class="box"></div>
+        </div>
+        <br>
+        <div class="resize">
+            <img src="/jQueryLab_eeit33/lab08/erik-mclean-ZRns2R5azu0-unsplash.jpg" alt="">
+        </div>
+        <button id="btn">go top</button>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        $('.con').scroll(function(){
+            console.log(`top:${$(this).scrollTop()},left:${$(this).scrollLeft()}`)
+        })
+        resize_img();
+        $(window).resize(resize_img)
+        function resize_img(){
+            let winW=$(window).width()
+            let winH=$(window).height()
+            let divW=$('.resize').width()
+            let divH=$('.resize').height()
+
+            let left=(winW-divW)/2
+            let top=(winH-divH)/2
+            $('.resize').css({
+                'left':left,
+                'top':top
+            })
+        }
+
+        let pageH=$('body').height()
+        let winH=$(window).height()
+        $(window).scroll(function(){
+            let winTop=$(this).scrollTop();
+            console.log(`pageHight:${pageH},windowsHight:${winH},nowHight:${winTop}`)
+            let scrollPercent=Math.round((winTop/(pageH-winH))*100)+'%'
+            $('.progress-percent').css('width',scrollPercent)
+        })
+        $('#btn').click(function(){
+            // $(window).scrollTop(0)
+            $('html,body').animate({
+                scrollTop:0
+            },900);
+            
+            
+        })
+</script>
+</body>
+</html>

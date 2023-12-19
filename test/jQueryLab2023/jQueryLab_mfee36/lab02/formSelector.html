@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lab02</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Form Selector</h1>
+    </header>
+    <div class="container">
+      <form action="#">
+        <div>
+          <input type="checkbox" name="checkGroup" value="1" />1
+          <input type="checkbox" name="checkGroup" value="2" disabled />2
+          <input type="checkbox" name="checkGroup" value="3" />3
+          <input type="checkbox" name="checkGroup" value="4" disabled />4
+          <input type="checkbox" name="checkGroup" value="5" />5
+        </div>
+        <div>
+          <input type="radio" name="radioGroup" />A
+          <input type="radio" name="radioGroup" />B
+        </div>
+        <div>
+          <select name="selectGroup" id="select">
+            <option value="11">11</option>
+            <option value="22">22</option>
+            <option value="33">33</option>
+          </select>
+        </div>
+      </form>
+      <hr />
+      <input type="button" value=":chekced" id="checked" />
+      <!-- <button value="1"></button> -->
+      <input type="button" value=":disabled" id="disabled" />
+      <input type="button" value=":selected" id="selected" />
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <!-- <script src="all.js"></script> -->
+    <script>
+      $(function () {
+        $("#selected").on("click", function () {
+          console.log($(":selected"));
+          console.log($(":selected").css("background", "pink"));
+        });
+        $("#checked").on("click", function () {
+          console.log($(":checked"));
+          console.log($(":checked").length);
+        });
+        $("#disabled").on("click", function () {
+          console.log($(":disabled"));
+        });
+      });
+    </script>
+  </body>
+</html>

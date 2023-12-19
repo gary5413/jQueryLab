@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Event</title>
+    <style>
+        div.cardContent {
+            display: inline-block;
+        }
+        .div-card{
+            display: inline-block;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form>
+            <div class="">
+                <input class="" id='inputB' type="text">
+                <span id='span_target'></span>
+                <br>
+                <input class="cardContent card-input" type="text" maxlength="4">
+                <input class="cardContent card-input" type="text" maxlength="4">
+                <input class="cardContent card-input" type="text" maxlength="4">
+            </div>
+            <hr>
+            <div class="div-card">
+                <input class="cardContent card-input1" type="text" maxlength="4">
+            </div>
+            <div class="div-card">
+                <input class="cardContent card-input1" type="text" maxlength="4">
+            </div>
+            <div class="div-card">
+                <input class="cardContent card-input1" type="text" maxlength="4">
+            </div>
+            <div class="">
+                <select id='select'>
+                    <option value="TPE" >台北市</option>
+                    <option value="NTPC">新北市</option>
+                    <option value="TYN" selected>桃園市</option>
+                </select>
+                <div class="target"></div>
+            </div>
+
+        </form>
+    </div>
+    <script src='/jQueryLab_eeit33/jquery-3.6.0.js'></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        $(function () {
+            $('.card-input').focus(function () {
+                console.log('focus')
+            })
+            $('.card-input').blur(function(){
+                console.log('blur')
+            })
+            $('.card-input').keyup(function () {
+                let maxLen = 4;
+                // let maxLen=$(this).attr('maxlenght') 
+                let contentLen = $(this).val().length;
+                // console.log(contentLen)
+                if (maxLen == contentLen) { //== 不用轉型 ===要轉型
+                    $(this).next().focus()
+                    $(this).parent().next().find(':input').focus()  //先往上找div 在往後div找input focus()
+                }
+            })
+            $('.card-input1').keyup(function(){
+                let maxLen=4
+                let contentLen=$(this).val().length;
+                if(maxLen == contentLen){
+                    $(this).parent().next().find(':input').focus() 
+                }
+            })
+            $('#inputB').focus(function(){
+                
+
+            })
+            $('#inputB').blur(function(){
+
+                
+            })
+
+            // $('.target').text($('#select').val())
+            $('#select').change(function(){
+                console.log($(this).val())
+                let content=$(this).val()
+                $('.target').text(content)
+            })
+        })
+    </script>
+</body>
+
+</html>

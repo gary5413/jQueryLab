@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body{
+            height: 300vh;
+        }
+        .go-top{
+            right:20px;
+            bottom:20px;
+        }
+        .ful-page{
+            height: 100vh;
+        }
+        #home{
+            background: plum;
+        }
+        #shop{
+            background: lightblue;
+        }
+        #about{
+            background: limegreen;
+        }
+    </style>
+</head>
+  <body>
+        <div class="ful-page" id='home'>
+            home
+        </div>
+        <div class="ful-page" id='shop'>
+            shop
+        </div>
+        <div class="ful-page" id='about'>
+            about
+        </div>
+          <button id='goTop'type='button' class="position-fixed go-top">top</button>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+      <script>
+          $('#goTop').click(function(){
+              console.log('123')
+              //   $(window).scrollTop(0)
+              //不能用$(window)
+              let target=$('#home').offset().top;
+              $('html').scrollTop(target)
+            //   $('html').animate({
+            //     scrollTop:target
+            // },700)
+          })
+      </script>
+</body>
+</html>

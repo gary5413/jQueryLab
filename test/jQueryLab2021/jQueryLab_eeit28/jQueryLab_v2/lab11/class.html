@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addClass removeClass toggleClass hasClass</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: lightseagreen;
+            transition: .4s;
+        }
+
+        .box.active {
+            background: lime;
+            border-radius: 50%;
+        }
+        .table{
+            width: 500px;
+            margin:10px;
+        }
+        tr.active{
+            background: lightblue;
+        }
+        table tr td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">      
+        <button type="button" id="add">add class</button>
+        <button type="button" id="remove">remove class</button>
+        <button type="button" id='toggle'>toggle class</button>
+        <hr>
+        <div class="box"></div>
+        
+        <div class="table-group">
+            <table class="table">
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Gary</td>
+                    <td>garylee@iii.org.tw</td>
+                    <td>034257387</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Gary</td>
+                    <td>garylee@iii.org.tw</td>
+                    <td>034257387</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Gary</td>
+                    <td>garylee@iii.org.tw</td>
+                    <td>034257387</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            //.addClass() .removeClass() .toggleClass() .hasClass() 
+            $('#add').on('click', function () {
+                $('.box').addClass('active')
+            })
+
+            $('#remove').on('click', function () {
+                $('.box').removeClass('active')
+            })
+
+            $('#toggle').on('click', function () {
+                $('.box').toggleClass('active')
+            })
+
+            $('.box').on('click', function () {
+                if ($(this).hasClass('active')) {
+                    $(this).removeClass('active')
+                } else {
+                    $(this).addClass('active')
+                }
+            })
+
+            $(':checkbox').on('click',function(){
+                // console.log('123')
+                // $(':checked').addClass('active')
+
+                // $('tr').removeClass('active')
+                // $(':checked').closest('tr').addClass('active')
+                
+                $(this).closest('tr').toggleClass('active')
+
+               
+            })
+            
+
+        })
+    </script>
+</body>
+
+</html>

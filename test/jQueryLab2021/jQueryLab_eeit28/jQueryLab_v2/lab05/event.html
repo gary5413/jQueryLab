@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Event</title>
+    <link rel="stylesheet" href="/jQueryLab_v2/lab01/style.css">
+    <style>
+        #div1{
+            height: 100px;
+            width: 500px;
+            padding: 10px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+        p{
+            background-color: lightcoral;
+        }
+        span{
+            background-color: lightgoldenrodyellow;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>jQuery Event</h3>
+    </header>
+    <div id="container">
+        <input type="text" id="input" placeholder="請輸入">
+        <hr>
+        <h3>preventDefault()</h3>
+        <a href='https://jquery.com/'>jQuery.com</a>
+        <div id="target"></div>
+        <hr>
+        <h3>stopPropagation()</h3>
+        <div id="div1">
+            div element
+            <p>p element <span>span element</span></p>
+        </div>
+    </div>
+    <script src="../jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('span').on('click',function(){
+                event.stopPropagation();
+                console.log('this is span element was clicked')
+            })
+            $('p').on('click',function(){
+                event.stopPropagation();
+                console.log('this is p element was clicked')
+            })
+            $('div').on('click',function(){
+                event.stopPropagation();
+                console.log('this is div element was clicked')
+            })
+
+            $('a').on('click',function(event){
+                event.preventDefault();
+                $('#target').append(`default ${event.type} prevented`).appendTo('#target')
+            })
+
+            $('#input').click(function(event){
+                // console.log(event.type)
+                // console.log(event.which)
+            })
+            let input=$('#input');
+            input.on('click',function(){
+                // console.log(event.type +' :on')
+                // console.log(event.which + ' :on')
+            })
+            input.keypress(function(event){
+                console.log(event.type)
+                console.log(event.which)
+                console.log(event.target)
+                
+            })
+            input.mousemove(function(event){
+                // console.log(event.type)
+                // console.log(event.which)
+                
+            })
+        })
+    </script>
+</body>
+</html>

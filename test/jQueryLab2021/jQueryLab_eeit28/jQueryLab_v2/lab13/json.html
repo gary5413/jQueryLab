@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //array = [value,value,value]
+        let names = ["Tom", "Jack", "Mary"];
+
+        //object {property:value,property:value}
+        let obj = { name: "Paul", age: 20 };
+
+        //JSON array + object
+        // let emps = [{},{},{}];
+        // let obj = {emps:[{},{},{}]}
+
+        let emps = [{ name: "Jack", age: 20 },
+                    { name: "Mary", age: 29 },
+                    { name: "Steve", age: 24 }];
+
+        //emps - array
+        //emps[1] - object
+        //emps[1].name - Mary
+        
+
+        var data = {
+            "emps": [
+                { "name": "Tom", "workYears": 3, "salary": 35000 },
+                { "name": "Jack", "workYears": 5, "salary": 40000 },
+                { "name": "Mary", "workYears": 7, "salary": 45000 }
+            ],"dept": [{ "dname": "accounting","location":"new york" },
+            { "dname": "research","location":"dallas" },
+            { "dname": "sales","location":"chicago" },
+            { "dname": "operations","location":"boston" }]
+        };
+        // console.log(data);
+        // console.log(data.emps);
+        // console.log(data.dept);
+        console.log(data.emps[0]);
+        console.log(data.emps[1]);
+        // console.log(data.emps[0].name);
+        // console.log(data.emps.length);
+
+    </script>
+</body>
+</html>

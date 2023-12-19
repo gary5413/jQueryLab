@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caculate</title>
+</head>
+<body>
+    <div class="container">
+        <input type="number" name="" id="num1">
+        <select id="calculate">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" id="num2">
+        <button id="result">=</button>
+        <input type="number" value="0" id='show' readonly>
+    </div>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $('#result').on('click',function(){
+                let num1=Number($('#num1').val())
+                let num2=Number($('#num2').val())
+                let calculate=$('#calculate').val()
+                // console.log(`${num1}  ${calculate} ${num2}`)
+                let result=0;
+            
+            switch(calculate){
+                case "+":
+                result=num1+num2
+                break;
+                case "-":
+                result=num1-num2
+                break;
+                case "*":
+                result=num1*num2
+                break;
+                case "/":
+                result=num1/num2
+                break;
+            }
+
+            console.log(result)
+            $('#show').val(result)
+            })
+        })
+    </script>
+</body>
+</html>

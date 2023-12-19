@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery lab04</title>
+    <link rel="stylesheet" href="/jQueryLab_v2/lab01/style.css">
+</head>
+<style>
+    body {
+        font-size: 20px;
+        font-family: Arial;
+        background-color: #f4f4ff;
+        line-height: 1.5em;
+    }
+
+    .table1 {
+        border: 2px solid black;
+        width: 500px;
+        height: 500px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .table1 tr td {
+        border: 1px solid black;
+
+    }
+
+    .box {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: pink;
+        /*  */
+        display: inline-block;
+        /*  */
+        margin: 5px;
+    }
+
+    .box2 {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: aquamarine;
+        display: inline-block;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>tree traversal</h1>
+    </header>
+    <div id="container">
+        <table class='table1' id="table1">
+            <tr>
+                <td>
+                    <div class="box"></div>
+                </td>
+                <td></td>
+                <td> </td>
+                <td></td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="box">
+                        <div class="box2"></div>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="stop">
+                    <div class="box"></div>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="box"></div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="box"></div>
+                </td>
+            </tr>
+
+
+
+        </table>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            $('td').on('click', function () {
+                console.log('123')
+                //childern()
+                // $(this).children('.box').css('background','lightblue')
+                // $(this).find('.box2').css('background','greenyellow')
+
+                //netx()
+                // $(this).next().css('background','lightblue')
+                // $(this).nextAll().css('background','lightblue')
+                // $(this).nextUntil('.stop').css('background','lightblue')
+                //prev()
+                // $(this).prev().css('background','lightgreen')
+                // $(this).prevAll().css('background','lightgreen')
+                // $(this).prevUntil('.stop').css('background','lightgreen')
+                
+                //mix
+                // $(this).css('background','none')
+                // .next().css('background','lightblue')
+                // .prev().prev().css('background','lightgreen')
+                
+                //end()
+                // $(this).css('background','none')
+                // .next().css('background','lightblue')
+                // .end().prev().css('background','lightgreen')
+
+                // $(this).css('background','none')
+                // .siblings().css('background','pink')
+
+                // >
+                
+            })
+            $('.box').on('click',function(){
+                //parent()
+                // $(this).parent().css('background','lightblue')
+                // $(this).parent().parent().css('background','lightblue')
+                
+                console.log($(this).parents())
+                // $(this).parents().css('background','lightgreen')
+                // $(this).closest('td').css('background','greenyellow')
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

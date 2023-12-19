@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <div class="container">
+        <!-- <button class="btn" id='testBtn1'> Button</button> -->
+        <input id='input' type="text" value="" placeholder="請輸入">
+    </div>
+    <script src='../jquery-3.5.1.js'></script>
+    <script>
+        $(function(){
+            $('#input').click(function(event){
+                console.log(event.type)
+                console.log(event.which)
+
+            })
+             $('#input').keypress(function(event){
+                console.log(event.type)
+                console.log(event.which)
+
+            })
+            $('#input').mousemove(function(event){
+                console.log(event.type)
+                console.log(event.which)
+                console.log('pageX='+event.pageX+',pagaY='+event.pageY)
+                console.log(event.target)
+                console.log(event.currentTarget)
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<style>
+    img {
+        height: 200px;
+        width: 200px;
+
+    }
+</style>
+
+<body>
+    <header>
+        <h1>jQuery</h1>
+    </header>
+    <div id="container">
+        <h3 id="source">Hello jQuery</h3>
+        <h4 id="target"></h4>
+        <button id="getText">get text</button>
+        <button id="setText">set text</button>
+        <br>
+        <p>
+            <b>Click</b> to change the <span id="tag">html</span>
+        </p>
+        <button id="setHtml">set Html</button>
+        <br>
+        <img id='sourceImg' src="/jQueryLab_v2/lab08/img/car.jpg" alt="car">
+        <button id="getAttr">get Attr</button>
+        <button id="setAttr">set Attr</button>
+        <br>
+        <button id='setLink'>set link</button>
+        <a id='link' href='https://www.google.com' title='google'>google</a>
+    </div>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            // .text()
+            $('#getText').on('click', function () {
+                let text = $('#source').text()
+                $('#target').text(text)
+            })
+            $('#setText').on('click', function () {
+                $('#source').text('set jQuery')
+            })
+            // html()
+            // $('#getHtml').on('click', function () {
+            //     let html = $('#source').html()
+            //     console.log(html)
+            //     $('#target').text(html)
+            // })
+            $("p").one('click', function () {
+                var htmlString = $('p').html();
+                $(this).text(htmlString);
+            });
+            $('#setHtml').on('click', function () {
+                $('p').html('<h1>set Html</h1>')
+
+            })
+
+            $('#getAttr').click(function () {
+                let img = $('#sourceImg').attr('src')
+                console.log(img)
+                let name = $('#sourceImg').attr('alt')
+                console.log(name)
+            })
+            $('#setAttr').click(function () {
+                // $('#sourceImg').attr('src','../redDeath_jQuery_lab/img/dr_fate.jpg')
+                // .attr('alt','麵包')
+                // $('#sourceImg').attr('alt','麵包')
+                $('#sourceImg').attr({
+                    'src': '../redDeath_jQuery_lab/img/dr_fate.jpg',
+                    'alt': "麵包"
+                })
+            })
+            $('#setLink').click(function(){
+            
+            $('#link').attr({
+                'href':'https://www.w3schools.com/',
+                'title':'w3school'
+            }).text('w3school')
+        })
+
+        })
+    </script>
+</body>
+
+</html>

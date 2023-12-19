@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="../jqueryCss.css">
+    <style>
+        .todoList{
+            border:2px solid black;
+            width: 400px;
+            height: 400px;
+            margin: auto;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>jQuery</h1>
+    </header>
+    <div class="container">
+        <div class="todoList">
+
+            <h1>TodoList</h1>
+            <div>
+                <label for="title">標題
+                    <input type="text" id='title' name='title'>
+                    
+                </label>
+                
+            </div>
+            <div>
+                <label for='message'>內容
+                    <input type="text" id='message' name='message'>
+                </label>
+                
+            </div>
+            <button id='btn'>確認</button>
+        </div>
+        </div>
+    <script src='/jQueryLab_v1/jquery-3.5.1.js'></script>
+    <script>
+        $(function(){
+            let todolist=[];
+            let id=1;
+            $('#btn').on('click',addList);
+            function addList(){
+                let title=$('#title').val();
+                // console.log(title);
+                let message=$('#message').val();
+                // console.log(message)
+                if(title==""||message==""){
+                    alert('請輸入標題及內容');
+                }else{
+                    let newtodo={
+                        'id':id,
+                        'title':title,
+                        'content':message,
+                        'status':false
+                    };
+                    todolist.push(newtodo);
+                    newList(newtodo);
+                    id++;
+
+                    $('#title').val('');
+                    $('#message').val('');
+                }
+
+            }//end addList()
+            
+            function newList(data){
+                let status=(data.status)?"checked":"";
+                let titleClass=(data.status)?"title2":"title";
+                let messageClass=(data.status)?"message2":"message";
+                let editClass=(data.status)?"none":"inline";
+                let content=
+                    `<div class='content' id="${data.id}">
+                        <div class='${titleClass}'></div>
+                        <text id='title${data.id}'>${data.title}</text>
+                        <div class='${messageClass}'></div>
+                        <text id='message${data.id}'>${data.content}</text>
+                    </div>`
+                $('.todoList').append(content)
+            }//end newList()
+
+        })//end scope()
+    </script>
+</body>
+</html>

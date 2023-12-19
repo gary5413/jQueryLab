@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Filter</title>
+    <link rel="stylesheet" href="/jQueryLab_v2/lab01/style.css">
+</head>
+<style>
+    table{
+        border:2px solid black;
+        width: 400px;
+        height: 400px;
+        /*  */
+        margin: 10 auto; 
+        
+    }
+    tr td{
+            border:1px solid black;
+        }
+</style>
+<body>
+    <header>
+        <h1>jQuery Lab02</h1>
+    </header>
+    <div id="container">
+        <div id="text">
+           
+            <p>Lorem <span>Hello jQuery</span> dolor sit amet, consectetur adipisicing elit. Eaque dolores necessitatibus molestias officia, corrupti inventore quisquam dolor quibusdam nulla rerum nesciunt culpa voluptas fugiat dolore saepe incidunt rem repudiandae repellendus.</p>
+        </div>
+
+        <ul id="list1">
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li class="not">List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li><span>List Item span</span></li>
+            
+        </ul>
+        <table id="table1">
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            //basic 
+            let all=$('*')
+            console.log(all)    
+            let ele=$('div')
+            console.log(ele)
+            console.log($('#container'))
+            console.log($('ul#list1,table#table1'))
+            //filter
+            //eq(n) n從0開始
+            // $('li:eq(1),td:eq(1)').css('background','pink') 
+            // $('li:even,td:even').css('background','lightblue')
+            // $('li:odd,td:odd').css('background','lightgreen')
+            // $('li:lt(3),td:lt(3)').css('background','yellow')
+            // $('li:gt(5),td:gt(5)').css('background','lightpink')
+            // $('li:first,td:first').css('background','black')
+            // $('li:last,td:last').css('background','red')
+            // $('li:not(.not),td:not(.not)').css('background','lightgrey')
+            //lab03 child filter
+            $('tr td:first-child').css('background','greenyellow')
+            $('tr td:last-child').css('background','pink')
+            //n從1開始
+            $('tr td:nth-child(2)').css('background','lightblue')
+            $('tr td:only-child').text('alone')
+            //lab03 filtering
+            // $('li').filter(':nth-child(2n)').css('background','pink')
+            // $('li').first().css('background','greenyellow')
+            // $('li').eq(1).css('background','lightblue')
+            // $('li').last().css('background','red')
+            // $('li').not('.not').css('background','gold')
+            // $('li').has('span').css('background','lightgrey')
+            // // is()
+            // $('li').on('click',function(){
+            //    if($(this).is(':odd')){
+            //        $(this).text('it\'s the first li')
+            //    }else if($(this).is(':contains("span")')){
+            //         $('span').css('background','yellow')
+            //    }
+            // })
+            // contents())
+
+        })
+    </script>
+</body>
+</html>

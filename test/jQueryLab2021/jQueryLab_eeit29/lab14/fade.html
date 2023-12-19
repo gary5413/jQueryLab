@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .box{
+            width: 200px;
+            height: 200px;
+            background: lightblue
+        }
+    </style>
+</head>
+<body>
+    <button class='btn' id="fadeOut">Fade out</button>
+    <button class='btn' id="fadeIn">Fade in</button>
+    <button class='btn' id="fadeToggle">Fade toggle</button>
+    <br>
+    <button class='btn' id="slideUp">Slide up</button>
+    <button class='btn' id="slideDown">Slide down</button>
+    <button class='btn' id="slideToggle">Slide toggle</button>
+    <hr>
+    <div class="box" id='box'></div>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $('#fadeOut').on('click',function(){
+            console.log('123')
+            $('#box').fadeOut(1000,function(){
+                $('#fadeOut').text(`it's gone`)
+                // 'its\'s gone'
+            })
+        })
+        $('#fadeIn').on('click',function(){
+                $('#box').fadeIn(1000,function(){
+                    $('#fadeOut').text('Fade out');
+                });
+            })
+        
+        $('#fadeToggle').on('click',function(){
+                $('#box').fadeToggle(1000)
+            })
+            $('#slideUp').on('click',function(){
+                $('#box').slideUp(1000)
+            })
+
+            $('#slideDown').on('click',function(){
+                $('#box').slideDown(1000)
+            })
+            
+            $('#slideToggle').on('click',function(){
+                $('#box').slideToggle(1000)
+            })
+    </script>
+</body>
+</html>

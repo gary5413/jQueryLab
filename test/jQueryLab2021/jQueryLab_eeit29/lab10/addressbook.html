@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="input">
+        <input type="text" name="" id="name" placeholder="請輸入姓名">
+    </div>
+    <div class="input">
+        <input type="text" name="" id="phone" placeholder="請輸入電話">
+    </div>
+    <div class="input">
+        <input type="text" name="" id="email" placeholder="請輸入E-Mail">
+    </div>
+    <div class="input">
+        <button id="add">add</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>E-Mail</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $('#add').click(function(){
+            let name=$('#name').val(),phone=$('#phone').val(),email=$('#email').val()
+            let newContent=`
+            <tr>
+                <td>${name}</td>
+                <td>${phone}</td>
+                <td>${email}</td>
+                <td><button id='del'>delete</button></td>
+            </tr>
+            `
+            $('tbody').append(newContent);
+            $('#name').val("")
+            $('#phone').val("")
+            $('#email').val("")
+            
+        })
+        $('tbody').on('click','#del',function(){
+            $(this).closest('tr').remove()
+        })
+    </script>
+</body>
+</html>

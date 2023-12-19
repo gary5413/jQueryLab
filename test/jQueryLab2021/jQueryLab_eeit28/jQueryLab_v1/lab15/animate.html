@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+    <style>
+        .box {
+            /* 做動畫一定要加這個 */
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            top: 150;
+            left: 150;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="moveRight">move right</button>
+    <button id="moveLeft">move left</button>
+    <button id="moveAround">move around</button>
+    <button id="swing">Swing</button>
+    <div class="box"></div>
+
+    <!-- <button type="button" class="btn">Button</button> -->
+    <!-- effect 注意  -->
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            $('#moveRight').on('click', function () {
+
+                $('.box').animate({
+                    left: 500,
+                    height: 300,
+                    width: 300,
+                    'border-radius': '50%',
+                    opacity: '0.5'
+                })
+            })
+            $('#moveLeft').on('click', function () {
+                $('.box').animate({
+                    left: 0,
+                    height: 100,
+                    width: 100,
+                    'border-radius': '0',
+                    opacity: '1'
+
+                })
+            })
+            $('#moveAround').on('click', function () {
+                let box = $('.box')
+                box.animate({
+                    left: 300,
+                }).animate({
+                    top: 300
+                }).animate({
+                    left: 0,
+                    top: 300
+                }).animate({
+                    left: 0,
+                    top: 0
+                })
+
+
+            })
+
+            $('#swing').on('click', function () {
+                //     // console.log('123')
+                //     $(this).animate({
+                //         top:300,    //預設是px
+                //         left:300,
+                //         'border-radius':'50%'
+                //     },1000) //時間預設400ms
+                // })
+                $('.box').animate({
+                    left: 300,
+                    top: 300
+                }, {
+                    duration: 1000,
+                    specialEasing: {
+                        top: 'linear', // 等速 
+                        left: 'swing' // 
+                    }
+                }).animate({
+                    left: 0,
+                    top: 0
+                }, {
+                    duration: 1000,
+                    specialEasing: {
+                        top: 'linear', 
+                        left: 'swing'  
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

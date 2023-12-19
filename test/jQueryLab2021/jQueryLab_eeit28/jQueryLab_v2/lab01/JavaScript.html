@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<style>
+    body{
+            font-size: 17px;
+            font-family: Arial;
+            background-color: #f4f4ff;
+            line-height: 1.5em;
+        }
+        header{
+            background: #333;
+            color:rgb(243, 239, 9);
+            padding:20px;
+            text-align: center;  
+            /* border-bottom: 4px rgb(13, 107, 44) solid; */
+            margin-bottom: 10px;
+        }
+        #container{
+            width: 90%;
+            margin:auto;
+            padding:10px;
+        }
+</style>
+<body>
+    <header>
+        <h1>JavaScript</h1>
+    </header>
+    <div id="container">
+        <h3 id="target">Hello JavaScript</h3>
+        <h3 id="h3">Hello JavaScript</h3>        
+        <h3 id="h3">Hello JavaScript</h3>        
+        <h3 id="h3">Hello JavaScript</h3>
+        <!-- <h3 class="h3">Hello JavaScript</h3>
+        <h3 class="h3">Hello JavaScript</h3>
+        <h3 class="h3">Hello JavaScript</h3>
+    -->
+    </div>
+</body>
+<script>
+    
+    let target=document.querySelector('#target')
+    target.addEventListener('mouseenter',function(){
+        this.style.color='yellow'
+    })
+    target.addEventListener('mouseleave',function(){
+        this.style.color='black'
+    })
+
+    
+    let h3All=document.querySelectorAll('#h3')
+    console.log(h3All)
+    let h3Len=h3All.length
+    console.log(h3Len)
+    for(let i=0;i<h3Len;i++){
+        h3All[i].addEventListener('mouseenter',function(){
+            h3All[i].style.color='red'
+        })
+        h3All[i].addEventListener('mouseleave',function(){
+            h3All[i].style.color='black'
+        })
+    }
+    
+   
+   
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse</title>
+</head>
+<body>
+    <input type="button" id="btn"value="button">
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#btn').on('dblclick',function(){
+                // 比較少用 手機版
+                console.log('double click')
+            })
+            $('#btn').on('contextmenu',function(){
+                console.log('contentmenu')
+            })
+            
+
+
+        })
+    </script>
+</body>
+</html>

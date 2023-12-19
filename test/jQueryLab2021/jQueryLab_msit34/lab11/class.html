@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: lightseagreen;
+            transition: .4s;
+        }
+
+        .box.active {
+            background-color: lightpink;
+            border-radius: 50%;
+        }
+        img {
+            height: 200px;
+            width: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="add">add class</button>
+    <button type="button" id="remove">remove class</button>
+    <button type="button" id='toggle'>toggle class</button>
+    <br>
+    <div class="box"></div>
+    <hr>
+    <button id='getProp'>get prop</button>
+    <button id='setProp'>set prop</button>
+    <br>
+    <input type="checkbox" id="checkbox">同意條款
+    <br>
+    <button id="confirm" disabled>confirm</button>
+    <hr>
+    <img id="sourceImg" src="/jQueryLab_eeit33/lab08/erik-mclean-ZRns2R5azu0-unsplash.jpg" alt="car">
+    <button id="getAttr">get Attr</button>
+    <button id="setAttr">set Attr</button>
+    <br>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script>
+        $('#add').on('click', function () {
+            $('.box').addClass('active')
+        })
+        $('#remove').on('click', function () {
+            $('.box').removeClass('active')
+        })
+        $('#toggle').on('click', function () {
+            $('.box').toggleClass('active')
+        })
+        // prop()
+        $('#getProp').on('click', function () {
+            console.log($('#checkbox').prop('checked'))
+        })
+        $('#setProp').on('click', function () {
+            $('#checkbox').prop('checked', true)
+        })
+        $('#checkbox').on('click', function () {
+            let checked = $(this).prop('checked')
+            console.log(checked)
+            if (checked) {
+                $('#confirm').prop('disabled', false)
+            } else {
+                $('#confirm').prop('disabled', true)
+            }
+            // $('#confirm').prop('disabled',!$(this).prop('checked'))
+
+        })
+        // attr()
+        $('#getAttr').click(function () {
+            let img = $('#sourceImg').attr('src')
+            let name = $('#sourceImg').attr('alt')
+            console.log(img + " ,"+name)
+        })
+        $('#setAttr').click(function () {
+            $('#sourceImg').attr({
+                src: '',
+                alt: "null"
+            })
+        })
+    </script>
+</body>
+
+</html>

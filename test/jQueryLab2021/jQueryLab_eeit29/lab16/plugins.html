@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/jQueryLab_eeit33/lab16/js/lightslider-master/dist/css/lightslider.css">
+    <link rel="stylesheet" href="/jQueryLab_eeit33/lab16/js/lightbox2-dev/dist/css/lightbox.css">
+    <link rel="stylesheet" href="/jQueryLab_eeit33/lab16/js/vegas/vegas.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <style>
+        .img1 {
+            width: 200px;
+        }
+
+        .wrapper {
+            width: 800px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul id="lightSlider">
+            <!-- <li data-thumb="/jQueryLab_eeit33/lab12/images/slide1.jpg"
+                data-src="/jQueryLab_eeit33/lab12/images/slide1.jpg"><img
+                    src="/jQueryLab_eeit33/lab12/images/slide1.jpg" alt=""></li>
+            <li data-thumb="/jQueryLab_eeit33/lab12/images/slide2.jpg"
+                data-src="/jQueryLab_eeit33/lab12/images/slide2.jpg"><img
+                    src="/jQueryLab_eeit33/lab12/images/slide2.jpg" alt=""></li>
+            <li data-thumb="/jQueryLab_eeit33/lab12/images/slide3.jpg"
+                data-src="/jQueryLab_eeit33/lab12/images/slide3.jpg"><img
+                    src="/jQueryLab_eeit33/lab12/images/slide3.jpg" alt=""></li>
+            <li data-thumb="/jQueryLab_eeit33/lab12/images/slide4.jpg"
+                data-src="/jQueryLab_eeit33/lab12/images/slide4.jpg"><img
+                    src="/jQueryLab_eeit33/lab12/images/slide4.jpg" alt=""></li> -->
+
+        </ul>
+    </div>
+    <hr>
+    <a href="/jQueryLab_eeit33/lab12/images/slide1.jpg" data-lightbox="roadtrip"><img class="img1"
+            src="/jQueryLab_eeit33/lab12/images/slide1.jpg" alt=""></a>
+    <a href="/jQueryLab_eeit33/lab12/images/slide2.jpg" data-lightbox="roadtrip"><img class="img1"
+            src="/jQueryLab_eeit33/lab12/images/slide2.jpg" alt=""></a>
+    <a href="/jQueryLab_eeit33/lab12/images/slide3.jpg" data-lightbox="roadtrip"><img class="img1"
+            src="/jQueryLab_eeit33/lab12/images/slide3.jpg" alt=""></a>
+    <a href="/jQueryLab_eeit33/lab12/images/slide4.jpg" data-lightbox="roadtrip"><img class="img1"
+            src="/jQueryLab_eeit33/lab12/images/slide4.jpg" alt=""></a>
+    <hr>
+
+    <button id="btn">Alert</button>
+    <hr>
+    <table id="table_id" class="display">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr> <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr> <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Gary</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script src="/jQueryLab_eeit33/lab16/js/lightslider-master/dist/js/lightslider.js"></script>
+    <script src="/jQueryLab_eeit33/lab16/js/lightbox2-dev/dist/js/lightbox.js"></script>
+    <script src="/jQueryLab_eeit33/lab16/js/vegas/vegas.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script>
+        $("#example, body").vegas({
+            slides: [
+                { src: "/jQueryLab_eeit33/lab12/images/slide1.jpg" },
+                { src: "/jQueryLab_eeit33/lab12/images/slide2.jpg" },
+                { src: "/jQueryLab_eeit33/lab12/images/slide3.jpg" },
+                { src: "/jQueryLab_eeit33/lab12/images/slide4.jpg" }
+            ],
+            transition: ['fade', 'zoomOut', 'swirlLeft']
+        });
+        $('#btn').on('click',function(){
+            Swal.fire({
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        })
+        $('#table_id').DataTable();
+        // $('#lightSlider').lightSlider({
+        //     gallery: true,
+        //     item: 1,
+        //     loop: true,
+        //     thumbItem: 4,
+        //     slideMargin: 0,
+        //     enableDrag: false,
+        //     currentPagerPosition: 'left',
+        //     onSliderLoad: function (el) {
+        //         el.lightGallery({
+        //             selector: '#imageGallery .lslide'
+        //         });
+        //     }
+        // });
+        // $("#lightSlider").lightSlider({
+        //     gallery: true, // 相本模式
+        //     item: 1, // 顯示數量
+        //     loop: true, // 無限循環
+        //     thumbItem: 4, // 縮圖數量
+        //     slideMargin: 0, // 間隔寬度
+        //     enableDrag: false // 當左右拖曳時，則切換上/下項目
+        // });
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        })
+    </script>
+</body>
+
+</html>

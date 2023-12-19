@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prop</title>
+</head>
+<body>
+    <div class="container">
+
+        <button id='getProp'>get prop</button>
+        <button id='setProp'>set prop</button>
+        <br>
+        <input id='checkbox'type="checkbox" >同意條款
+        <br>
+        <button id='confirm' disabled>confirm</button>
+    </div>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+
+            $('#getProp').on('click',function(){
+                console.log($('#checkbox').prop('checked'))
+            })
+            $('#setProp').on('click',function(){
+                $('#checkbox').prop('checked',true)
+
+            })
+
+            $('#checkbox').on('click',function(){
+                let checked=$(this).prop('checked')
+                console.log(checked)
+                // $('#confirm').prop('disabled',!checked)
+
+                // if(checked){
+                //     $('#confirm').prop('disabled',false)
+                // }else{
+                //     $('#confirm').prop('disabled',true)
+                // }
+
+                $('#confirm').prop('disabled',!$(this).prop('checked'))
+
+            })
+
+
+        })
+    </script>
+</body>
+</html>

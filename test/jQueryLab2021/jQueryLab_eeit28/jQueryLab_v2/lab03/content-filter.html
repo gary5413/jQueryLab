@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab03</title>
+    <link rel="stylesheet" href="/jQueryLab_v2/lab01/style.css">
+</head>
+<body>
+    <header>
+        <h1>jQuery content filter</h1>
+    </header>
+    <div id="container">
+        <h3 id="heading1">heading One</h3>
+        <p id="para1">Hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam optio nulla iste nisi exercitationem quisquam deleniti obcaecati ut, harum voluptates doloremque quis, possimus rerum aliquam aut et pariatur similique? Quidem.</p>
+        <h3 id="heading2">heading Two</h3>
+        <p id="para2"><span>jQuery</span>, ipsum dolor sit amet consectetur adipisicing elit. Cumque animi quae vitae fuga provident illo veritatis sequi, optio quas suscipit adipisci harum, error eligendi sed impedit rem id vero voluptatum!</p>
+        <h3 id="heading3">heading Three</h3>
+        <p id="para3"></p>
+    </div>
+    
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('p:contains("Hello")').css('background','lightblue')
+            // $('p:has(span)').css('background','greenyellow')
+            $('p:parent').css('background','lightgreen')
+            console.log($('p:empty()'))
+            $('p:empty()').text('test')
+            
+        })
+    </script>
+</body>
+</html>

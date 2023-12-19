@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+
+<body>
+    <button class="btn">AJAX</button>
+    <ul id="data">
+        <li></li>
+    </ul>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            // $.ajax({
+            //     url: '',                        // url位置
+            //     type: 'get',                   // post/get
+            //     data: { querytag: data },       // 輸入的資料
+            //     error: function (xhr) { },      // 錯誤後執行的函數
+            //     success: function (response) { }// 成功後要執行的函數
+            // });
+            $('.btn').on('click', function () {
+
+                $.ajax({
+                    url: './WebJob.json',
+                    success: function (response) {
+                        console.log(response);
+                        $('#data').html('抓到資料囉!<hr>')
+                        $.each(response, function (index, ele) {
+                            $('#data').append(
+                                `
+                                <li>
+                                    ${index + 1} ${ele.subject} ${ele.address}
+                                    </li>
+                                    `
+                            )
+                        })
+                    },
+                    error: function (xhr) {
+                        alert("發生錯誤: " + xhr.status + " " + xhr.statusText);
+                    }
+                });
+            })
+
+        })
+    </script>
+</body>
+
+</html>

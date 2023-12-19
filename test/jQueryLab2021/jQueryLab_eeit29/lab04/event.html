@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="請輸入">
+    <textarea name="" id="textarea" cols="30" rows="10">this is textarea</textarea>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#input').on('click',function(){
+                console.log('click')    
+                console.log(event.type)
+                console.log(event.which)           
+            })
+
+            $('#input').click(function(){
+                // console.log('123')
+            })
+
+            $('#textarea').mousemove(function(){
+                console.log(event.type)
+                console.log(event.which)
+                console.log(`pageX:${event.pageX} ,pageY:${event.pageY}`)
+                console.log(event.target)
+                
+            })
+        })
+    </script>
+</body>
+</html>

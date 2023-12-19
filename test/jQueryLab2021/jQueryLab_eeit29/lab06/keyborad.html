@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard</title>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <input id='input'type="text" value="" placeholder="請輸入">
+        </form>
+        <h3 id='target'></h3>
+    </div>
+    <script src='../jquery-3.5.1.js'></script>
+<script>
+    $(function(){
+        /*
+            keypress keydown 類似
+            按下觸發事件 但是在取值前觸發的
+        */
+        $('#input').keypress(function(){
+            console.log('Handler for .keypress() called');
+            
+        })
+        $('#input').keyup(function(){
+            // console.log($(this).val())
+            let inputContent=$(this).val()
+            $('#target').text(inputContent)
+        })
+
+        $('#input').keydown(function(){
+            // console.log('Handler for .keydown() called')
+            
+        })
+    })
+</script>
+</body>
+</html>

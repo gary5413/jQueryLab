@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>each</title>
+    <style>
+        table tr td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td>21</td>
+                <td>1</td>
+                <td>33</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>3</td>
+                <td>4</td>
+                <td>44</td>
+            </tr>
+            <tr>
+                <td>66</td>
+                <td>5</td>
+                <td>88</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>88</td>
+                <td>9</td>
+                <td>234</td>
+            </tr>
+        </table>
+        <hr>
+
+    </div>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            
+
+            let sum = 0;
+            $('td').each(function () {
+                // console.log($(this).text())
+                sum += Number($(this).text())
+            })
+            console.log(`sum:${sum}`)
+
+            let arr = ['Gary', 'iii', 'EEIT126']
+            $.each(arr, function (i, val) {
+                console.log(val)
+
+            })
+            let data = [
+                {
+                    "name": "Gary",
+                    "email": "gary@iii.org.tw",
+                    "phone": "034257387"
+                },
+                {
+                    "name": "Dora",
+                    "email": "dora@iii.org.tw",
+                    "phone": "034257387"
+                },
+                {
+                    "name": "Alice",
+                    "email": "Alice@iii.org.tw",
+                    "phone": "034257387"
+                }
+            ]
+            $.each(data,function(index,emp){
+                // console.log(emp.name)
+                // console.log(emp.email)
+                // console.log(emp.phone)
+                console.log(`${emp.name} ${emp.email} ${emp.phone}`)
+            })
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form selector</title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="text1">Text:</label>
+            <input type="text" id="text1" value="someTextValue">
+        </div>
+        <div>
+            <label >Radio group:</label>
+            <input type="radio" id="radioA" checked="checked">A
+            <input type="radio" id="radioB" >B
+            <input type="radio" id="radioC" disabled="disable">C
+            <input type="radio" id="radioD" disabled="disable">D
+        </div>
+        <div>
+            <label for="">Checkboxes</label>
+            <input type="checkbox" id="checkbox1" value="1">1
+            <input type="checkbox" id="checkbox2" value="2">2
+            <input type="checkbox" id="checkbox3" value="3">3
+            <input type="checkbox" id="checkbox4" value="4">4
+        </div>
+        <div>
+            <select name="" id="">
+                <option value="1">A</option>
+                <option value="2" selected="selected">B</option>
+                <option value="3">C</option>
+            </select>
+        </div>
+        <div>
+            <input type="image" src="">
+            <textarea>this is textarea</textarea>
+        </div>
+        <hr>
+        <input type="button" id="checked" value=":checked">
+        <input type="button" id="selected" value=":selected">
+        <input type="button" id="image" value=":image">
+        <input type="button" id="text" value=":text">
+        <input type="button" id="input" value=":input">
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $('#checked').on('click',function(){
+                console.log($(':checked'))
+            })
+            $('#selected').on('click',function(){
+                console.log('123')
+                $(":selected").css('background','red')
+                console.log($(':selected'))
+            })
+            $('#image').on('click',function(){
+                $(':image').css('border','fuchsia dotted 2px')
+            })
+            $('#text').on('click',function(){
+                $(':text').css('background-color','lightgreen')
+            })
+            $('#input').on('click',function(){
+                $(':input').css('background','yellow')
+            })
+        })
+    </script>
+</body>
+</html>

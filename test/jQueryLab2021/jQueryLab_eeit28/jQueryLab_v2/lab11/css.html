@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class </title>
+    <link rel="stylesheet" href="/jQueryLab_v1/jqueryCss.css">
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <style>
+        .myClass {
+            color: cadetblue;
+
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: lightpink
+        }
+
+        /* .p2 {
+            background: lightsalmon;
+            font-style: italic;
+
+        } */
+        /* .box{
+         
+        } */
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>jQuery</h1>
+    </header>
+    <div class="container">
+
+        <p class="p1" id='p1'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias officiis veniam ipsam
+            iste
+            ipsum autem cum a voluptate, dignissimos magni voluptatum temporibus in quos, praesentium blanditiis harum
+            necessitatibus, provident enim.</p>
+        <p class="p2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto alias nobis optio ratione
+            excepturi? Tempora vero magnam quam cum asperiores vitae, perspiciatis maiores! Nemo, odio eligendi placeat
+            eos itaque pariatur.</p>
+
+        <div class="box"></div>
+        <button class='btn'>Button</button>
+        <button class='btn' id='extend'>extend</button>
+
+        <div id='myDiv'>
+            <ul id='list'>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+            </ul>
+        </div>
+
+
+    </div>
+    <script>
+        $(function () {
+            /*
+            .css('')取值
+            .ccs('','') 設值
+            .css({ 設多個值
+                color:'red',
+                font
+            }) 
+            */
+
+            $('#p1').css('background', 'lightblue')
+
+            $('.btn').on('click', function () {
+                console.log($('#p1').css('background'))
+                $('.box').css({
+                    'border-radius':'50%',
+                    'transition': '.5s',   
+                })
+            })
+            $('.p2').css({
+                "background": 'lightsalmon',
+                'font-style': 'italic'
+            })
+            //寫成物件
+            // let style={
+            //     background:'red',
+            //     width:'150px',
+            //     height:'150px'
+            // }
+            // $('.box').css(style)
+            $('#extend').on('click',function(){
+                $('.box').css('width','+=5')
+            })          
+        })
+    </script>
+</body>
+
+</html>

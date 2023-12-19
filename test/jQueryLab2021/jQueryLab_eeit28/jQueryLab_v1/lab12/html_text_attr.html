@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Content</title>
+    <style>
+        span{
+            color:lightseagreen;
+        }
+        #img1{
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>jQuery</h1>
+    </header>
+    <div class="contanier">
+        <button class="btn" id='getText'>get text</button>
+        <button class="btn" id='setText'>set text</button>
+        <h1 id='source'>Hello jQuery</h1>
+        <h1 id='target'></h1>
+        <button class="btn" id='getHtml'>get html</button>
+        <button class="btn" id='setHtml'>set html</button>
+        <br>
+        <img id='img1'src="../image/img_flower1.jpg" alt="花">
+        <br>
+        <button id="getAttr">get attr</button>
+        <button id="setAttr">set attr</button>
+        <br>
+        <a id='a'href="https://jquery.com/" title="jQuery">jQuery</a>
+        <button id='setLink'>set link</button>
+    </div>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            //.text()
+            $('#getText').on('click',function(){
+                let text=$('#source').text()
+                console.log(text)
+                $('#target').text(text)
+            })
+            $('#setText').on('click',function(){
+                $('#source').text('new jQuery')
+            })
+            //.html() 
+            $('#getHtml').on('click',function(){
+                let html=$('#source').html()
+                console.log(html)
+                $('#target').text(html)
+            })
+            $('#setHtml').on('click',function(){
+                $('#source').html('new <span>html</span>')
+            })
+
+            $('#getAttr').on('click',function(){
+                console.log('attr():'+$('#img1').attr('src'))
+                let alt=$('#img1').attr('alt')
+                console.log(`attr():${alt}`)
+            })
+            $('#setLink').on('click',function(){
+                $('#a').attr({
+                'href':'https://www.w3schools.com/',
+                    'title':'w3school'
+                }).text('w3school')
+            })
+
+           
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

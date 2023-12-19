@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll & resize</title>
+    <style>
+        body {
+            /* vh view height 螢幕可視範圍高度百分比 */
+            height: 300vh;
+        }
+
+        .con {
+            width: 100px;
+            height: 100px;
+            /* 溢出內容 */
+            overflow: auto;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+
+        .progress {
+            background: lightgrey;
+            position: fixed;
+            width: 100%;
+            height: 30px;
+            top: 0;
+            left: 0;
+            /* margin-bottom: 5px; */
+
+        }
+
+        .progress-precent {
+            height: 30px;
+            background: lightgreen;
+            width: 0%;
+        }
+
+        div.div-img{
+            position: absolute;
+            width: 400px;
+            height: 300px;    
+        }
+
+        img {
+            position: absolute;
+            width:400px;
+            height:300px;
+            float: left;
+
+        }
+
+        .btn {
+            right: 10px;
+            bottom: 10px;
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress">
+        <div class="progress-precent"></div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="con">
+            <div class="box"></div>
+
+        </div>
+        <p></p>
+        <div class="div-img">
+            <img src="/jQueryLab_v1/image/car.jpg">
+
+        </div>
+        <button type="button" class="btn">go top</button>
+    </div>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+          
+            $(window).resize(function () {
+               
+                console.log('resize')
+                console.log('width:' + $(this).width() + ',height:' + $(this).height())
+            })
+            move_div();
+             //當視窗放大或縮小時呼叫move_div的函式
+            //讓div1置中
+            $(window).resize(move_div)
+
+            function move_div(){
+                let winWidth=$(window).width()
+                let winHeight=$(window).height()
+                let divWidth=$('.div-img').width()
+                let divHeight=$('.div-img').height()
+                console.log(winHeight)
+                console.log(divHeight)
+
+                let left=(winWidth-divWidth)/2
+                let top=(winHeight-divHeight)/2
+
+                $('.div-img').css('left',left).css('top',top)
+            }
+
+            $('.btn').click(function () {
+                $(window).scrollTop(0)
+            })
+            $('.con').scroll(function () {
+                console.log('top:' + $(this).scrollTop() + ',left:' + $(this).scrollLeft())
+            })
+            let pageHeight = $('body').height();
+            // console.log(`pageHeight: ${pageHeight}`);
+            let winHeight = $(window).height();
+            // console.log(`winHeight: ${winHeight}`);
+            $(window).on('scroll', function () {
+                let scrollTop = $(this).scrollTop();
+                console.log(scrollTop)
+
+
+                let scrollPercent = Math.round(($(this).scrollTop() / (pageHeight - winHeight)) * 100) + '%'
+                // console.log(scrollPercent);
+                $('.progress-precent').css('width', scrollPercent)
+            })
+
+        })
+    </script>
+</body>
+
+</html>

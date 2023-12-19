@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+         .box {
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <button class='btn'>bounce</button>
+    <button class='btn'>swing</button>
+    <button class='btn'>jello</button>
+    <button class='btn'>flash</button>
+    <button class='btn'>pulse</button>
+    <button class='btn'>rubberBand</button>
+    <hr>
+    <div class="box"></div>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $('.btn').click(function () {
+                let animate = $(this).text();
+                animateCSS('.box', animate)
+            })
+    </script>
+</body>
+</html>

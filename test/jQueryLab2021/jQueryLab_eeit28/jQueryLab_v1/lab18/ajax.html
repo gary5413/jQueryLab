@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+
+<body>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            /*
+            AJAX Asychronous JavaScript and XML
+            XMLHttpRequest物件
+            $.ajax(url,options)
+            $.ajax(options)
+            $.ajax({
+                url,type,dataType,data,successCallBack
+            })
+            JSON =>JavaScript Object Notation
+            變數 物件 陣列 
+
+            */
+            let def = $.Deferred();
+            $.ajax({
+                url: './iii.json',
+                type: 'get',//get post put path delete
+                dataType: 'json',//html xml text json
+                data: {}
+            }).then(function (res) {
+                console.log(res)
+                return def.resolve
+            }, function (err) {
+                console.log(err)
+                return def.reject
+            })
+            // var name = "Gary"
+            // var type = 'handsome'
+            // //key value
+            // var people1 = {
+            //     name: 'Gary',
+            //     type='handsome'
+            // }
+            // var people2 = {
+            //     name: 'Gary',
+            //     type='handsome'
+            // }
+            // var people3 = {
+            //     name: 'Gary',
+            //     type='handsome'
+            // }
+            // var arr = [
+            //     people1, people2, people3, people4 = {
+            //         name: 'Gary', type: 'handsome'
+            //     }
+            // ]
+
+
+        })
+    </script>
+</body>
+
+</html>

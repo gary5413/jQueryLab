@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopPropagation</title>
+    <style>
+        .container{
+            height: 100px;
+            width: 500px;
+            padding: 10px;
+            border: 1px solid blue;
+            background-color: lightblue;
+        }
+        p{
+            background-color: lightcoral;
+        }
+        span{
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        div element
+        <P>p element <span style="font-style: italic;">span element</span></P>
+    </div>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $('span').click(function(){
+                event.stopPropagation(); 
+                console.log('this is span element was clicked')
+            })
+            $('p').click(function(){
+                console.log('this is p element was clicked')
+            })
+            $('div').click(function(){
+                console.log('this is div element was clicked')
+            })
+        })
+    </script>
+</body>
+</html>

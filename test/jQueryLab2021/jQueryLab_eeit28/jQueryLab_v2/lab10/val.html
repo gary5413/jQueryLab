@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>val</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-group">
+            <form class="register-form">
+                <input type="text" id='input'>
+                <br>
+                <input type="text" id='account' placeholder="請輸入帳號">
+                <input type="password" id='password' placeholder="請輸入密碼">
+                <h4 id='target'></h4>
+            </form>
+        </div>
+        <button id='getVal'>get val</button>
+        <button id='setVal'>set val</button>
+        <br>
+        <div class="select-group">
+            <select id="select">
+                <option value="tpe">台北市</option>
+                <option value="ntp">新北市</option>
+                <option value="tya">桃園市</option>
+            </select>
+        </div>
+        <button id="getSelect">get Select</button>
+        <button id="setSelect">set Select</button>
+
+    </div>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            $('#getVal').click(function () {
+                let val = $('#input').val()
+                console.log(val)
+            })
+            $('#setVal').click(function () {
+                $('#input').val('set val')
+            })
+
+            $('#account').on('change keyup', function () {
+                // console.log('123')
+                let accountVal = $(this).val()
+                $('#target').text(accountVal)
+            })
+
+            $('#getSelect').on('click', function () {
+                let cityCode = $('#select').val()
+                let cityName = $('#select option:selected').text()
+                console.log(`city Code is ${cityCode},city Name is ${cityName}`)
+            })
+
+            // $('#select').on('change',function(){
+            //     let cityCode=$('#select').val()
+            //     let cityName=$('#select option:selected').text()
+            //     console.log(`city Code is ${cityCode},city Name is ${cityName}`)
+            // })
+        })
+    </script>
+</body>
+
+</html>

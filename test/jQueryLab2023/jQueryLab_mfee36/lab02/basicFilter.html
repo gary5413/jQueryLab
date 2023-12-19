@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Basic Filter</h1>
+    </header>
+    <div class="container">
+      <ul class="list">
+        <li>list item</li>
+        <li id="list">list item</li>
+        <li>list item</li>
+        <li class="not">list item</li>
+        <li>list item</li>
+        <li>list item</li>
+        <li>list item</li>
+        <li>list item</li>
+      </ul>
+      <ul class="list">
+        <li>list item</li>
+        <li id="list">list item</li>
+        <li>list item</li>
+        <li class="not">list item</li>
+        <li>list item</li>
+        <li>list item</li>
+        <li>list item</li>
+        <li>list item</li>
+      </ul>
+      <ul>
+        <li></li>
+      </ul>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, modi
+        consequatur itaque, nihil fugiat nemo quibusdam quae alias tenetur
+        reiciendis beatae fugit molestias eius architecto aliquid autem corrupti
+        debitis cupiditate.
+      </p>
+      <p>
+        Hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+        repellendus dolor nihil illum similique repudiandae in obcaecati, earum
+        iste vitae, dicta soluta et officia culpa ratione odio, molestias
+        accusamus fuga.
+      </p>
+      <p>
+        <span>FUEN25</span> Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Eius pariatur, esse iusto voluptatibus beatae praesentium? Dolorem
+        adipisci culpa perspiciatis! Quasi quaerat at repellat porro amet
+        voluptatum modi atque quos omnis?
+      </p>
+      <p></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <!-- <script src="all.js"></script> -->
+    <script>
+      $(function () {
+        // basic selector
+        console.log($("*"));
+        console.log($("h1"));
+        console.log($(".list"));
+        console.log($("#list"));
+        console.log($("div,ul"));
+
+        // basic filter
+        // eq(n) n從0開始
+        // $("li:eq(1)").css("background", "pink");
+        // $("li:even").css("background", "lightgreen");
+        // $("li:odd").css("background", "lightblue");
+        // lt <3
+        // $("li:lt(3)").css("background", "red");
+        // gt >4
+        // $("li:gt(4)").css("background", "blue");
+        // $("li:first").css("background", "white");
+        // $("li:last").css("background", "black");
+        // // not
+        // $("li:not(.not)").css("background", "greenyellow");
+
+        // content filter
+        $('p:contains("Hello")').css("background", "pink");
+        $("p:has(span)").css("background", "lightgreen");
+        $("P:empty").text("empty text");
+        $("p:parent").css("background", "lightblue");
+
+        // child filter
+        $("li:first-child").css("background", "pink");
+        $("li:last-child").css("background", "yellow");
+        // nth-child(n) n從1開始
+        $("li:nth-child(2)").css("background", "lightgreen");
+        $("li:only-child").css("background", "red");
+      });
+    </script>
+  </body>
+</html>

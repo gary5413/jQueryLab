@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02HierarchySelector.html</title>
+</head>
+<body> 
+    <div id="div1">
+        <a>child a</a>
+        <p>child p<a>aaa</a></p>
+        <div>
+            <p>descenant p</p>
+            <p>descenant p</p>
+        </div>
+        <p>child p</p>
+    </div>
+    <p>next p</p>
+    <p>sibling p</p>
+    <hr>
+
+    <input type="button" id="gt" value="div>p">
+    <input type="button" id="space" value="div p">
+    <input type="button" id="plus" value="div+p">
+    <input type="button" id="wave" value="div~p">  
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#gt").click(function(){                 
+                $("#div1>p").css("border","solid fuchsia 2px");                
+            });
+
+            $("#space").click(function(){                
+                $("#div1 p").css("background-color","yellow");
+            });
+
+            $("#plus").click(function(){               
+                $("#div1+p").css("color","blue");
+            });
+
+            $("#wave").click(function(){               
+                $("#div1~p").css("border","dotted green 2px");
+            });                   
+        });
+    </script>    
+</body>
+</html>

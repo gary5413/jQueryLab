@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic filter</title>
+    <style>
+        body{
+    font-size: 17px;
+    font-family: Arial;
+    background-color: #f4f4f4;
+    line-height: 1.5em;
+}
+header{
+    background: #333;
+    color:#fff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#container{
+    width: 90%;
+    margin:auto;
+    padding:10px;
+}
+        table{
+            border:2px solid black;
+            width: 400px;
+            height: 400px;
+            margin:10 auto;
+        }
+        tr td{
+            border:1px solid black
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>jQuery Lab02</h1>
+    </header>
+    <div id="container">
+        <table>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td class="not">3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="not">2</td> 54
+                <td>3</td>
+            </tr>
+            <tr>
+                <td class="not">1</td>
+                <td>2</td>
+                <td>3 <span>span</span></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        <ul class="list">
+            <li>List Item</li>
+            <li>List Item <span>span</span></li>
+            <li class="not">List Item</li>
+            <li >List Item</li>
+            <li class="not">List Item</li>
+            <li>List Item</li>
+            <li>List Item <span>span</span></li>
+            <li>List Item</li>
+            <li>List Item <span>span</span></li>
+            <li>List Item</li>
+            <li>List Itemß</li>
+        </ul>
+        <hr>
+        <p id="para1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, iusto tempore perferendis natus, deleniti architecto culpa quam, rem porro odit dolorum quisquam fuga deserunt eveniet aliquid accusantium ad dicta provident.</p>
+        <p id="para2">Hello Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, iusto tempore perferendis natus, deleniti architecto culpa quam, rem porro odit dolorum quisquam fuga deserunt eveniet aliquid accusantium ad dicta provident.</p>
+        <p id="para3"><span>jQuery</span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, iusto tempore perferendis natus, deleniti architecto culpa quam, rem porro odit dolorum quisquam fuga deserunt eveniet aliquid accusantium ad dicta provident.</p>
+        <p id="para4"></p>
+    </div>
+<!-- <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function(){
+        // basic
+        let all=$('*')
+        console.log(all)
+        let ele=$('table')
+        console.log(ele)
+        console.log($('#lorem'))
+        console.log($('.list'))
+        console.log($('div,p'))
+
+        // filter
+        //eq(n) n從0開始
+        // $('td:eq(1)').css('background','pink')
+        // $('li:eq(0)').css('background','pink')
+        // $('td:even,li:even').css('background','lightgreen')
+        // $('td:odd,li:odd').css('background','lightblue')
+        // lt <3
+        // $('td:lt(3),li:lt(3)').css('background','yellow')
+        // gt >5
+        // $('td:gt(5),li:gt(5)').css('background','black')
+        // $('td:first,li:first').css('background','red')
+        // $('td:last,li:last').css('background','blue')
+        // $('td:not(.not),li:not(.not)').css('background','white')
+
+
+        // =================================================
+        // content filter
+        $('p:contains("Hello")').css('background','yellow')
+        $('p:has(span)').css('background','lightgreen')
+        $('p:empty').text('empty test')
+        $('p:parent').css('background','red')
+
+        // child filter
+        // $('tr td:first-child').css('background','red')
+        // $('tr td:last-child').css('background','blue')
+        // nth-child(n) n從1開始
+        $('tr td:nth-child(2)').css('background','lightgreen')
+        $('tr td:only-child').text(':only-child')
+
+        // filtering
+        // $('td').first().css('background','yellow')
+        // $('td').last().css('background','yellow')
+        // $('td').eq(2).css('background','pink')
+        // $('td').not('.not').css('background','white')
+        // $('td').has('span').css('background','blue')
+        // $('li').on('click',function(){
+        //     if($(this).is('li:odd')){
+        //         $(this).text(' is() > :odd')
+        //     }else if($(this).is(':contains("span")')){
+        //         $(this).css('background','pink')
+        //     }
+        // })
+})
+</script>
+</body>
+</html>

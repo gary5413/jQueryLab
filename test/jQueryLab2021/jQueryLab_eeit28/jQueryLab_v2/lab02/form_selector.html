@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form Selector</title>
+    <link rel="stylesheet" href="/jQueryLab_v2/lab01/style.css">
+</head>
+<body>
+    <header>
+        <h1>jQuery  Form Selector</h1>
+    </header>
+    <div id="container">
+        <form action="" id="form1">
+            <h3>Form One</h3>
+            <label for="name">Name</label>
+            <input type="text" id="name" value="this is text">
+            <br>
+            <label for="gender">Gender(radio)：</label>
+            <input type="radio" value="male" name='gender' checked>Male
+            <input type="radio" value="female" name='gender' disabled>Female
+            <br>
+            <label for="habit">Habbit(checkbox)：</label>
+            <input type="checkbox" id="habit" value="movie" disabled>Movie
+            <input type="checkbox" id="habit" value="game" checked>Game
+            <input type="checkbox" id="habit" value="sport" >Sport
+            <br>
+            <label for="city">City</label>
+            <select name="" id="city">
+                <option value="taipei">taipei</option>
+                <option value="taoyuan">taoyuan</option>
+                <option value="kaohsiung">kaohsiung</option>
+            </select>
+            
+            <br>
+            <textarea name="" id="" cols="30" rows="10"　>this is textare</textarea>
+            <br>
+            <button id="btn">setting</button>
+          
+            <hr>
+            <input type="button" id="checked" value=":checked">
+            <input type="button" id="selected" value=":selected">
+            <input type="button" name="" id="disable" value=":disable">
+            <input type="button" id="checked" value=":input">
+            <hr>
+            <button id='getVal'>get val</button>  
+            <button id='setVal'>set val</button>
+            <button id='getSelect'>get Select</button>
+            <button id='setSelect'>set Select</button>
+        </form>
+        </fFemrm>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('#checked').on('click',function(){
+                console.log($(':checked'))
+            })
+            // $('#selected').on('click',function(){
+            //     $(':selected').css('background','lightblue')
+            // })
+            $('#city').on('change',function(){
+                $(':selected').css('background','lightblue')
+            })
+            $('#disable').on('click',function(){
+                console.log($(':disabled'))
+            })
+            $(':text').css('background','yellow')
+            $(':button').css('background','orange')
+            $(':input').css('background','lightblue')
+
+            
+            $(':radio').on('click',function(){
+                // console.log('123')
+                console.log($(':radio').val())
+            })
+
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide</title>
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background: black;
+            /* margin 邊界空白距離 左右0 上下auto  */
+            margin: 0 auto;
+            /* 設定容器元件顯示方法 */
+            overflow: hidden;
+            /*  */
+            position: relative;
+        }
+
+        .slider-img {
+            margin: 0;
+            padding: 0;
+            /*  */
+            position: absolute;
+            /*  */
+            display: flex;
+            width: 3200px;
+            transition: .5s;
+        }
+
+        .slider-img li {
+            width: 800px;
+            height: 400px;
+        }
+
+        .slider-img li img {
+            width: 100%;
+            height: 100%;
+            /* 控制置換元素內容填入的大小 */
+            object-fit: cover;
+        }
+
+        /* 換頁 */
+        .pages {
+            /*  */
+            position: absolute;
+            /*  */
+            display: flex;
+            left: 0;
+            bottom: 10px;
+            width: 100%;
+            /*  */
+            
+            justify-content: center;
+        }
+
+        .pages li {
+            border: 1px solid #fff;
+            width: 24px;
+            height: 10px;
+            margin: 0 3px;
+        }
+
+        .pages li:hover {
+            background-color: black;
+        }
+
+        /* 左右箭頭 */
+        a.slider-arrow {
+            /*  */
+            display: flex;
+            position: absolute;
+            /*  */
+            justify-content: center;
+            /*  */
+            align-items: center;
+            color: #fff;
+        }
+
+        .slider-arrow {
+            z-index: 10;
+            width: 40px;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrap">
+            <a class="slider-arrow" id="sliderPrev"><i class="fas fa-chevron-left"></i></a>
+            <a class="slider-arrow right" id='sliderNext'><i class="fas fa-chevron-right"></i></a>
+            <ul class="slider-img" id='sliderImg'>
+                <li><img src="/jQueryLab_v1/lab10/images/slide1.jpg"></li>
+                <li><img src="/jQueryLab_v1/lab10/images/slide2.jpg"></li>
+                <li><img src="/jQueryLab_v1/lab10/images/slide3.jpg"></li>
+                <li><img src="/jQueryLab_v1/lab10/images/slide4.jpg"></li>
+            </ul>
+            <ul class="pages" id="pages">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function () {
+            
+            let slideIndex = 0;
+            let slideMove = 0;
+            let flag=true;
+            // 換頁第一個變白色
+            $('#pages li').eq(0).css('background', 'white')
+
+            $('#pages li').on('mouseenter', function () {
+                // 1.第一張圖 移動 在多個圖
+                // $('#sliderImg').css('left','-800px')
+                // let index=$(this).index()
+                slideIndex = $(this).index()
+                // console.log(slideIndex)
+                // console.log(index)
+                slideMove = 0 - slideIndex * 800;
+                $('#sliderImg').css('left', slideMove)
+
+
+                // $(this).css('background','white')
+                $(this).css('background', 'white').siblings().css('background', 'transparent')
+                flag=false;
+                
+            })
+            let sliderCount = $('#sliderImg li').length
+            $('#sliderNext').on('click', function () {
+                // console.log('next')
+                // //為了讓這裡讀取到index值 區域遍全域
+                // slideIndex++;
+                // if (slideIndex >= sliderCount) {
+                //     slideIndex = 0;
+                // }
+                next()
+
+                //
+                // slideMove=0-slideIndex*800;
+                // $('#sliderImg').css('left',slideMove)
+                //下面換頁也要移動 如果直接貼過來會報錯 $(this)找的不一樣
+                // $(this).css('background','white').siblings().css('background','transparent')
+                // $('#pages li').eq(slideIndex).css('background','white').siblings().css('background','transparent')
+                showImg()
+                flag=false;
+            })
+
+            function next(){
+                console.log('next')
+                //為了讓這裡讀取到index值 區域遍全域
+                slideIndex++;
+                if (slideIndex >= sliderCount) {
+                    slideIndex = 0;
+                }
+            }
+            
+            $('#sliderPrev').on('click', function () {
+                console.log('prev')
+                slideIndex--;
+                if (slideIndex < 0) {
+                    slideIndex = sliderCount - 1;
+                }
+                // slideMove=0-slideIndex*800;
+                // $('#sliderImg').css('left',slideMove)
+                // $('#pages li').eq(slideIndex).css('background','white').siblings().css('background','transparent')
+                showImg()
+                flag=false;
+            })
+
+            function showImg() {
+                slideMove = 0 - slideIndex * 800;
+                $('#sliderImg').css('left', slideMove)
+                $('#pages li').eq(slideIndex).css('background', 'white').siblings().css('background', 'transparent')
+
+            }
+            let timer = setInterval(autoImg, 2000)
+            function autoImg() {
+                //    console.log('hello')
+                if(flag){
+                    next()
+                    showImg()
+                }else{
+                    flag=true
+                }
+            }
+        })  
+    </script>
+</body>
+
+</html>

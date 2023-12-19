@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>jQuery </title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h3>jQuery</h3>
+
+    </header>
+    <div id="container">
+        <h3 id="target">Hello jQuery </h3>
+        <h3 id="target">Hello jQuery </h3>
+        <h3 id="target">Hello jQuery </h3>
+        <h3 id="h3">Hello jQuery</h3>
+        <h3 id="h3">Hello jQuery</h3>
+        <h3 id="h3">Hello jQuery</h3>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // let iii='Gary'
+        $(function(){
+            
+            $('h3#target').on('mouseenter',function(){
+                $(this).css('color','greenyellow')
+            }).on('mouseleave',function(){
+                $(this).css('color','black')
+            })
+
+            let iii='Gary'
+            $('h3#h3').on('mouseenter',function(){
+                console.log('mouse enter')
+                $(this).css('color','lightblue')
+            })
+            .on('mouseleave',function(){
+                console.log('mouse leave')
+                $(this).css('color','black')
+            })
+        })
+    </script>
+</body>
+</html>

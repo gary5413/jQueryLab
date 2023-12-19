@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table {
+            border: 2px solid black;
+            width: 500px;
+            margin: 10px;
+        }
+
+        .table tr td {
+            border: 1px solid black;
+        }
+
+        .table tr.active {
+            background: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table ">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id='checkAll'></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Gary</td>
+                <td>garylee@iii.org.tw</td>
+                <td>034257387</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Gary</td>
+                <td>garylee@iii.org.tw</td>
+                <td>034257387</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>Gary</td>
+                <td>garylee@iii.org.tw</td>
+                <td>034257387</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        let dataCount = $('tbody tr').length
+        $('tbody :checkbox').on('click', function () {
+            // console.log('123')
+            let checked = $(this).prop('checked')
+            if (checked) {
+                $(this).closest('tr').addClass('active')
+            } else {
+                $(this).closest('tr').removeClass('active')
+            }
+            let checkedCount = $('tr.active').length;
+            if (dataCount == checkedCount) {
+                $('#checkAll').prop('checked', true)
+            } else {
+                $('#checkAll').prop('checked', false)
+            }
+        })
+
+        $('#checkAll').on('click', function () {
+            let checked = $(this).prop('checked')
+            if (checked) {
+                $('tbody :checkbox').prop('checked', true)
+                    .closest('tr').addClass('active')
+            } else {
+                $('tbody :checkbox').prop('checked', false)
+                    .closest('tr').removeClass('active')
+            }
+        })
+    </script>
+</body>
+
+</html>

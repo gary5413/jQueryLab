@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade Slide </title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: lightblue
+        }
+    </style>
+</head>
+<body>
+    <button class='btn' id="fadeOut">Fade out</button>
+    <button class='btn' id="fadeIn">Fade in</button>
+    <button class='btn' id="fadeToggle">Fade toggle</button>
+    <br>
+    <button class='btn' id="slideUp">Slide up</button>
+    <button class='btn' id="slideDown">Slide down</button>
+    <button class='btn' id="slideToggle">Slide toggle</button>
+    <hr>
+    <div class="box" id='box'></div>
+    <!-- 注意版本effect  -->
+    <script src="../jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $('#fadeOut').on('click',function(){
+                $('#box').fadeOut(1000,function(){
+                    $('#fadeOut').text('its\'s gone');
+                })
+            })
+
+            $('#fadeIn').on('click',function(){
+                $('#box').fadeIn(1000,function(){
+                    $('#fadeOut').text('Fade out');
+                });
+            })
+
+            $('#fadeToggle').on('click',function(){
+                $('#box').fadeToggle(1000)
+            })
+
+            $('#slideUp').on('click',function(){
+                $('#box').slideUp(1000)
+            })
+
+            $('#slideDown').on('click',function(){
+                $('#box').slideDown(1000)
+            })
+            
+            $('#slideToggle').on('click',function(){
+                $('#box').slideToggle(1000)
+            })
+
+
+        })
+    </script>
+</body>
+</html>

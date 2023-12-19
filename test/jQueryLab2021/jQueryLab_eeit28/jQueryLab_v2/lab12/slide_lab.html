@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 800px;
+            height: 400px;
+            background: black;
+            margin:0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .ulSlider{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            position: absolute;
+            width: 3200px;
+            /* left: -400px; */
+        }
+        .ulSlider li{
+            width: 800px;
+            height: 400px;
+        }
+        .ulSlider li img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="ulSlider">
+            <li><img src="/lab12/images/slide1.jpg"></li>
+            <li><img src="/lab12/images/slide2.jpg"></li>
+            <li><img src="/lab12/images/slide3.jpg"></li>
+            <li><img src="/lab12/images/slide4.jpg"></li>
+        </ul>
+    </div>
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+
+        })
+    </script>
+</body>
+</html>

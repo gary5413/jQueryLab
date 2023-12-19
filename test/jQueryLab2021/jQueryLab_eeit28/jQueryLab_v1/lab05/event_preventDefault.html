@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="https://jquery.com/">default click action is prevented</a>
+  <div id="log1"></div>
+  <!-- <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur earum ratione dignissimos, consequatur accusantium sed. Eaque asperiores ab odit consectetur, deleniti non eligendi perspiciatis sed! Illo quidem excepturi soluta non!</p> -->
+  <script src="../jquery-3.5.1.js"></script>
+  <script>
+    $(function(){
+      
+      $('a').click(function(event){
+        event.preventDefault();
+        $('#log1').append(`default ${event.type} prevented`)
+        .appendTo('#log1')
+      })
+    })
+  </script>
+</body>
+</html>

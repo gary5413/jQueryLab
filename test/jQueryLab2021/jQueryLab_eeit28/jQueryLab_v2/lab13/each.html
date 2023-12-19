@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table tr td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>21</td>
+            <td>1</td>
+            <td>33</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>3</td>
+            <td>4</td>
+            <td>44</td>
+        </tr>
+        <tr>
+            <td>66</td>
+            <td>5</td>
+            <td>88</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>88</td>
+            <td>9</td>
+            <td>234</td>
+        </tr>
+    </table>
+    <hr>
+    <button class="btn" data-age='36' data-team="Lakers" data-name='Leborn-James'>Leborn James</button>
+    <button class="btn" data-age='32' data-team="Warriors" data-name='Steven-Curry'>Steven Curry</button>
+     <div id="target">
+    <script src="/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $('.btn').on('click',function(){
+                 let age=$(this).data('age')
+                 console.log(age)
+                let team=$(this).data('team'),name=$(this).data('name')
+                console.log(`${name} age is ${age} and team is ${team}`)
+                $('#target').text(`${name} age is ${age} and team is ${team}`)
+             })    
+             //回傳所在位置索引 回傳-1 從0開始
+             let arr1=['9','5','2','7',1,2,3,4,5,6]
+            console.log($.inArray(7,arr1))
+            
+            //回傳新的陣列
+            result=$.map(arr1,function(item,index){
+                return item*index
+            })
+            console.log(result)
+
+            //根據設定的條件找到陣列符合的資料回傳
+            result_grep=$.grep(arr1,function(item,index){
+                return (item %2==0)
+            })
+            console.log(result_grep)
+
+
+            let sum=0;
+            $('td').each(function(){
+                sum+=Number($(this).text())
+            })
+            // console.log(sum)
+
+            let arr = ['Gary', 'iii', 'EEIT126']
+            $.each(arr, function (i, val) {
+                // console.log(val)
+
+            })
+            let data = [
+                {
+                    "name": "Gary",
+                    "email": "gary@iii.org.tw",
+                    "phone": "034257387"
+                },
+                {
+                    "name": "Dora",
+                    "email": "dora@iii.org.tw",
+                    "phone": "034257387"
+                },
+                {
+                    "name": "Alice",
+                    "email": "Alice@iii.org.tw",
+                    "phone": "034257387"
+                }
+            ]
+            $.each(data,function(index,emp){
+                // console.log(emp.name)
+                // console.log(emp.email)
+                // console.log(emp.phone)
+                // console.log(`${emp.name} ${emp.email} ${emp.phone}`)
+            })
+           
+            var data2 = {
+            "emps": [
+                { "name": "Tom", "workYears": 3, "salary": 35000 },
+                { "name": "Jack", "workYears": 5, "salary": 40000 },
+                { "name": "Mary", "workYears": 7, "salary": 45000 }
+            ], "dept": [{ "dname": "accounting","location":"new york" },
+            { "dname": "research","location":"dallas" },
+            { "dname": "sales","location":"chicago" },
+            { "dname": "operations","location":"boston" }]
+        };
+            // $.each(data2,function(index,emp){
+            //     console.log(`${emp.emps[0].name}`)
+            // })
+
+
+
+        })
+    </script>
+</body>
+</html>

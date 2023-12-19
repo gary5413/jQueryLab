@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Filter</title>
+    <script src="/jQueryLab_v1/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="/jQueryLab_v1/jqueryCss.css">
+    <style>
+        table{
+            border:2px solid black;
+            width: 400px;
+            height: 400px;
+            margin: 10 auto;
+        }
+        tr td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>jQuery</h1>
+    </header>
+    <div class="container">
+        
+        <ul id="list1">
+            <li>List Item</li>
+            <li class="not">List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+        </ul>
+
+        <ul id="list2">
+            <li>List Item</li>
+            <li class="not">List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+            <li>List Item</li>
+        </ul>
+    </div>
+    <div>
+        <table id='table' >
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br>
+        <table id='table2' >
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td><p></p></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        $(function(){
+            //basic filter
+            // $('li:eq(1),td:eq(1)').css('background','pink'); //n從0開始
+
+            // $('li:even,td:even').css('background','lightblue')
+
+            // $('li:odd,td:odd').css('background','greenyellow')
+
+            // $('li:first,td:first').css('background','lightgray')
+
+            // $('li:last,td:last').css('background','navy')
+
+            // $('li:gt(5),td:gt(5)').css('background','white')
+
+            $('li:lt(5)').css('background','pink')
+
+            // $('li:not(.not),td:not(.not)').css('background','gold')
+
+            // $('ul#list1 li:even').css('background','lightblue')
+
+            // $('table#table td:odd').css('background','greenyellow')
+
+            //content filter
+
+            //child filter
+
+            //filtering
+            // $('li').first().css('background','lightgray')
+            // $('td').last().css('background','lightgray')
+            // $('li').eq(2).css('background','pink'); 
+            // $('td').eq(20).css('background','pink');
+            // $('li').not('.not').css('background','gold')
+            // $('td').has('p').css('background','greenyellow')
+        })
+    </script>
+</body>
+</html>

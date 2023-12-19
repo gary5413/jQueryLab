@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Lab06</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        div.out{
+            width: 40%;
+            height: 250px;
+            /*  */
+            margin: 0 15px;
+            background-color: lightgray;
+            /*  */
+            float: left;
+        }
+        div.in{
+            width: 60%;
+            height: 60%;
+            background-color: yellowgreen;
+            margin: 10px auto;
+        }
+        p{
+            line-height: 1em;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>jQuery Mouse Event</h1>
+    </header>
+    <div id="container">
+        <!--  -->
+        <button id="btn">Button</button>
+        <hr>
+        <div class="box out overout ">
+            <span>move your mouse</span>
+            <div class="in  overout"></div>
+        </div>
+        <div class="box out enterleave">
+            <span>move your mouse</span>
+            <div class="in enterleave"></div>
+        </div>
+    </div>
+    <script src="/jQueryLab_eeit28/jquery-3.6.0.js"></script>
+    <script>
+        $(function() {
+            // mouseenter leave vs mouseover out
+            let i=0
+            $('div.overout').mouseover(function(){
+               i+=1;
+               $(this).find('span').text('mouse over x'+i)
+            }).mouseout(function(){
+                $(this).find('span').text('mouse out X'+i)
+            })
+
+            let n=0;
+            $('div.enterleave').mouseenter(function(){
+                n+=1;
+                $(this).find('span').text('mouse enter X'+n);
+            }).mouseleave(function(){
+                $(this).find('span').text('mouse leave X'+n)
+            })
+            $('#btn').hover(function(){
+                $(this).append(' hover')
+            },function(){
+                $(this).text('Button')
+            })
+            $('#btn').click(function(){
+                // console.log('click')
+            })
+            $('#btn').dblclick(function(){
+                console.log('dbclick')
+            })
+            $('#btn').contextmenu(function(){
+                console.log('右鍵')
+            })
+            $('#btn').mousedown(function(){
+                console.log('mousedown')
+            })
+            $('#btn').mouseup(function(){
+                console.log('mouseup')
+            })
+            $('#btn').mouseenter(function(){
+                // console.log('mouseenter')
+            })
+            $('#btn').mouseleave(function(){
+                // console.log('mouseleave')
+            })
+            $('#btn').mouseover(function(){
+                console.log('mouseover')
+            })
+            $('#btn').mouseout(function(){
+                console.log('mouseout')
+            })
+            
+        })
+    </script>
+</body>
+</html>

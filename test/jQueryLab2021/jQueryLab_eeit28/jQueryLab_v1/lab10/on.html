@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Event</title>
+    <style>
+        .table{
+            width: 100px;
+            height: 100px;
+        }
+        table tr td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <h1 class="h1" id='jq'>jQuery</h1> -->
+        <button class="btn">on</button>
+        <input type="text" id='input'>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn" id='click'>Click</button>
+        <button class="btn" id='on'>On</button>
+        <button class="btn" id='off'>Off</button>
+        <h3 id='target'></h3>
+    </div>
+    <script src="/jQueryLab_v1/jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $('.btn').on('click mouseenter',function(){
+                // console.log('click')
+                // console.log('jQuery')
+            })
+            
+            $('#input').on('change keyup',function(){
+                let val=$(this).val()            
+                console.log('change keyup')
+                console.log(val)
+            })
+
+            $('.table tbody tr td').on('click',function(){
+                // console.log($(this).text())
+            })
+            
+            $('.table').on('click','td',function(){
+                
+                console.log($(this).text())
+            })
+            
+            function handler(){
+                $('#target').text('jQuery')   
+                console.log('jQuery') 
+            }
+            $('#on').on('click',function(){
+                $('#click').on('click',handler)
+                console.log('on')
+            })
+            $('#off').on('click',function(){
+                $('#click').off('click',handler)
+                console.log('off')
+                $('#target').text('')
+            })
+        })
+    </script>
+</body>
+</html>

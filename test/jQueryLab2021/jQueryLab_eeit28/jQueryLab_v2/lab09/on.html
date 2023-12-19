@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+<style>
+   
+</style>
+</head>
+<body>
+    <header>
+        <h1>on</h1>
+    </header>
+    <div id="container">
+        <button id="btn">button</button>
+        <hr>
+        <button id="hello">Hello</button>
+        <button id="on">on</button>
+        <button id="off">off</button>
+        <button id="one">one</button>
+        <hr>
+        <button id="add">add</button>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ul>
+    </div>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            let i=3;
+            $('#add').on('click',function(){
+                $('ul').append('<li>item '+i+'</li')
+                    i++
+            })
+            // 動態產生時綁定
+            $('ul li').on('click',function(){
+                console.log('123')
+            })
+            // $('ul').on('click','li',function(){
+            //     let content=$(this).text()
+            //     console.log(content)
+            // })
+            // 多個事件處理同一個函數
+            // $('#btn').on('click mouseenter mouseout',function(){
+            //     console.log('jQuery')
+            // })
+            // 同個選擇器多個事件多個函數
+            $('button#btn').on({
+                click:function(){
+                    console.log('click')
+                },dblclick:function(){
+                    console.log('double click')
+                },contextmenu:function(){
+                    console.log('right click')
+                }
+            })
+            let sayHello=function(){
+                console.log('Hello')
+            }
+            $('#on').on('click',function(){
+                console.log('on')
+                $('#hello').on('click',sayHello)
+            })
+            $('#off').on('click',function(){
+                $('#hello').off('click',sayHello)
+                console.log('off')
+            })
+            $('#one').one('click',function(){
+                console.log('one')
+            })
+        })
+    </script>
+</body>
+</html>

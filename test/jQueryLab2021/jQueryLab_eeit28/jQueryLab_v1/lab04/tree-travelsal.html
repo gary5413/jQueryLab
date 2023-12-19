@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tree travelsal</title>
+    <script src="/jQueryLab_v1/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="/jQueryLab_v1/jqueryCss.css">
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: pink;
+            display: inline-block;
+            margin: 5px;
+
+        }
+
+        .box2 {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: cornflowerblue;
+            display: inline-block;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>jQuery</h1>
+    </header>
+    <div class="container">
+        <table class="table1">
+            <tr>
+                <td></td>
+                <td>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </td>
+                <td>
+                    <div class="box"></div>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="box"></div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="box">
+                        <div class="box2"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="stop"></td>
+                <td>
+                    <div class="box stop"></div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="box"></div>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+    <script>
+        $(function () {
+            $('td').on('click', function () {
+                console.log('123')
+
+                //children()
+                // $(this).children('.box2').css('background','red')
+                // $('td>.box').css('background','salmon')
+
+                // $(this).css('background','red')
+                // $(this).find('.box2').css('background','greenyellow')
+
+                //next()
+                // $(this).next().css('background','lightblue')
+                // $(this).nextAll().css('background','lightblue')
+                $(this).nextUntil('.stop').css('background','lightblue')
+                //prev()
+                // $(this).prev().css('background','greenyellow')
+                // $(this).prevAll().css('background','greenyellow')
+                // $(this).prevUntil('.stop').css('background','greenyellow')
+
+                //
+                // $(this).css('background','none')
+                // $(this).next().css('background','lightblue')
+                // $(this).prev().css('background','greenyellow')
+
+                // $(this).css('background','none')
+                // .next().css('background','lightblue')
+                // .prev().prev().css('background','greenyellow') //next()後面是空的 prev()沒辦法往前最後會錯
+
+                // end() siblings()
+
+                // $(this).css('background','none')
+                // .next().css('background','lightblue')
+                // .end().prev().css('background','greenyellow') //end()回到this
+
+
+                // $(this).css('background','none')
+                // .siblings().css('background','pink') //siblings()自己以外
+
+
+            })
+            $('.box').on('click', function () {
+                //parent()
+                //往上一層找元素
+                // $(this).parent().css('background','lightblue') 
+                // 兩次
+                // $(this).parent().parent().css('background','lightblue') 
+
+                // console.log($(this).parents())
+                // $(this).parents().css('background','pink')
+                //找最接近的 
+                $(this).closest('td').css('background','lightblue') 
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Plguin</title>
+    <link rel="stylesheet" href="../plguin/lightbox2-dev/dist/css/lightbox.css" />
+    <link rel="stylesheet" href="../plguin/vegas-master/dist/vegas.css">
+    <link rel="stylesheet" href="../plguin/package/dist/sweetalert2.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <style>
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table_id" class="display">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 1 Data 1</td>
+                <td>Row 1 Data 2</td>
+            </tr>
+            <tr>
+                <td>Row 2 Data 1</td>
+                <td>Row 2 Data 2</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <a href="../image/img_flower1.jpg" data-lightbox="image-1" data-title="My flower"><img
+            src='../image/img_flower1.jpg' id="img1"></a>
+    <hr>
+    <a href="../image/img_flower1.jpg" data-lightbox="image-2" data-title="My flower"><img
+            src='../image/img_flower1.jpg' id="img1"></a>
+    <a href="../image/img_flower1.jpg" data-lightbox="image-2" data-title="My flower"><img
+            src='../image/img_flower1.jpg' id="img1"></a>
+    <a href="../image/img_flower1.jpg" data-lightbox="image-2" data-title="My flower"><img
+            src='../image/img_flower1.jpg' id="img1"></a>
+    <a href="../image/img_flower1.jpg" data-lightbox="image-2" data-title="My flower"><img
+            src='../image/img_flower1.jpg' id="img1"></a>
+
+    <script src="../jquery-3.5.1.js"></script>
+    <script src="../plguin/lightbox2-dev/src/js/lightbox.js"></script>
+    <script src="../plguin/vegas-master/dist/vegas.js"></script>
+    <script src="../plguin/package/dist/sweetalert2.all.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+        $(function () {
+            $('#table_id').DataTable({
+                
+            });
+
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true
+
+            })
+
+            $("#example, body").vegas({
+                transition: ['fade2', 'slideLeft', 'slideDown2'],
+                delay: '3000',
+                slides: [
+                    { src: "../image/view1.jpg" },
+                    { src: "../image/view2.jpg" },
+                    { src: "../image/view3.jpg" },
+                    { src: "../image/view4.jpg" }
+                ]
+            });
+
+            
+            Swal.fire(
+                'The Internet?',
+                'That thing is still around?',
+                'question'
+            )
+        })
+    </script>
+</body>
+
+</html>

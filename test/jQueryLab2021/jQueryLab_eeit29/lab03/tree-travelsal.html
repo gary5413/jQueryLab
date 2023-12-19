@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tree traversal</title>
+    <style>
+        #table1{
+            border:2px solid black;
+            width: 500px;
+            height: 500px;
+            margin:auto;
+            text-align: center;
+        }
+        #table1 tr td{
+            border: 1px solid black;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: pink;
+            display: inline-block;
+        }
+        .box2{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: hotpink;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table1">
+
+
+        <tr>
+            <td></td>
+            <td>
+                <div class="box">
+                    <div class="box2"></div>
+                </div>
+            </td>
+            <td class="stop"></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="box"></div>
+            </td>
+            <td class="stop"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>
+                <div class="box"></div>
+            </td>
+            <td class="stop"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="stop"></td>
+            <td>
+                <div class="box"></div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <div class="box"></div>
+            </td>
+        </tr>
+
+
+
+
+    </table>
+    <script src="/jQueryLab_eeit33/jquery-3.6.0.js"></script>
+    <script>
+        $(function () {
+            $('td').on('click',function(){
+                // childern()
+                // $(this).children('.box').css('background','lightblue')
+                // $(this).find('.box2').css('background','greenyellow')
+           
+                // next()
+                // $(this).next().css('background','lightblue')
+                // $(this).nextAll().css('background','lightblue')
+                // $(this).nextUntil('.stop').css('background','greenyellow')
+                
+                // prev()
+                // $(this).prev().css('background','lightblue')
+                // $(this).prevAll().css('background','lightblue')
+                // $(this).prevUntil('.stop').css('background','lightblue')
+                
+                // mix
+                // $(this).prev().css('background','lightblue')
+                // $(this).next().css('background','lightgreen')
+
+                // $(this).css('background','none')
+                // .next().css('background','lightgreen')
+                // .prev().prev().css('background','lightblue')
+
+                // end()
+                // $(this).css('background','none')
+                // .next().css('background','lightgreen')
+                // .end().prev().css('background','lightblue')
+
+                // siblings()
+                // $(this).css('background','none')
+                // .siblings().css('background','pink')
+                
+            })
+            $('.box').on('click',function(){
+                // parent()
+                // $(this).parent().css('background','lightgreen')
+                // $(this).parent().parent().css('background','lightgreen')
+                console.log($(this).parents())
+                // $(this).parentsUntil('table').css('background','hotpink')
+                $(this).closest('tr').css('background','greenyellow')
+            })
+        })
+    </script>
+</body>
+
+</html>

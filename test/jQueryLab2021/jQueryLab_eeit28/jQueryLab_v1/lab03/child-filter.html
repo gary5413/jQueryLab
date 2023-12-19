@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>child-filter</title>
+    <script src="/jQueryLab_v1/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="/jQueryLab_v1/jqueryCss.css">
+    <style>
+        .container {
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 15px;
+            padding-left: 15px;
+            width: 100%;
+            max-width: 1140px;
+            border: 1px solid black;
+            display: flex;
+        }
+        table{
+            border:2px solid black;
+            width: 400px;
+            height: 400px;
+            margin: 10 auto;
+        }
+        tr td{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>jQuery</h1>
+    </header>
+    <div class="container">
+        <table id='table' >
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br>
+        <table id='table2' >
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <p></p>
+                <td></td>
+                <td class="not"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                
+            </tr>
+        </table>
+    </div>
+    <script>
+        $(function(){
+            $('tr td:first-child').css('background','lightblue')
+            $('tr td:last-child').css('background','lightgreen')
+            $('tr td:nth-child(2)').css('background','pink') //n從1開始
+
+            $('tr td:only-child')
+
+
+
+
+        })
+    </script>
+</body>
+</html>
