@@ -1,19 +1,26 @@
 # jQueryLab
+
 ##### jQueryLab 教學用紀錄
+
 ##### 2022/11/03
+
 ##### Gary Lee
 
 ### 更新紀錄
-- 2023/0615
-重新整理github空間
 
+- 2023/12/19
+  - 重新整理架構
+- 2023/06/15
+  - 重新整理 github 空間
 
 ### 線上電子檔講義
+
 電子檔：https://1drv.ms/b/s!AlubA-G-FP-2g_BIK6LJ7QNFfJt3xQ?e=cftxGQ
 
 ### 章節目錄
-1. jQuery簡介
-2. jQuery 選擇器Selectors
+
+1. jQuery 簡介
+2. jQuery 選擇器 Selectors
 3. jQuery Tree Traversal
 4. jQuery Event(事件處理)
 5. Mouse Events 滑鼠事件
@@ -30,4 +37,3 @@
 16. jQuery UI
 17. Another Plugins
 18. jQuery AJAX
-
