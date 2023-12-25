@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mouse Event</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+      div.out {
+        height: 250px;
+        width: 40%;
+        margin: 0 15px;
+        background-color: lightgreen;
+        float: left;
+      }
+      div.in {
+        width: 60%;
+        height: 60%;
+        background-color: lightblue;
+        margin: 10px auto;
+      }
+    </style>
+  
+</head>
+<body>
+  <header>
+    <h1>Mouse Event</h1>
+  </header>
+  <div class="container">
+    <button id="btn">Button</button>
+    <hr />
+    <div class="out overout">
+      <span>move your mouse</span>
+      <div class="in over"></div>
+    </div>
+    <div class="out enterleave">
+      <span>move your mouse</span>
+      <div class="in enter"></div>
+    </div>
+    <script src="../jquery-3.7.1.js"></script>
+    <script>
+      $(function(){
+        // code 
+         // 手機關係少用
+         $("#btn").dblclick(function () {
+          console.log("double click");
+        });
+        // 手機關係少用
+        $("#btn").contextmenu(function () {
+          console.log("right click");
+        });
+        $("#btn").mouseup(function () {
+          console.log("mouseup");
+        });
+
+        let count_overout = 0;
+        $("div.overout").mouseover(function () {
+          count_overout += 1;
+          $(this)
+            .find("span")
+            .text("mouse over:" + count_overout);
+        });
+        let count_enterleave = 0;
+        $("div.enterleave").mouseenter(function () {
+          count_enterleave += 1;
+          $(this).find("span").text(`mouse enter:${count_enterleave}`);
+        });
+      })
+    </script>
+  </div>
+</body>
+</html>

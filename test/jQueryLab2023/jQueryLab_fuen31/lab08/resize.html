@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resize</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Resize</h1>
+  </header>
+  <div class="container">
+    <div class="resize">
+      <img src="" alt="">
+    </div>
+    <script src="../jquery-3.7.1.js"></script>
+    <script>
+      $(function(){
+        // code 
+        let p = $("#p1");
+        $("#p1").text(
+          `innerWidth:${p.innerWidth()},outterWidth:${p.outerWidth()},outterWidth(true):${p.outerWidth(
+            true
+          )}`
+        );
+        // resize_img();
+        $(window).resize(resize_img);
+        function resize_img() {
+          let winWidth = $(window).width();
+          let winHeight = $(window).height();
+          let divWidth = $(".resize").width();
+          let divHeight = $(".resize").height();
+
+          let left = (winWidth - divWidth) / 2;
+          let top = (winHeight - divHeight) / 2;
+          $(".resize").css({
+            left: left,
+            top: top,
+          });
+        }
+      })
+    </script>
+  </div>
+</body>
+</html>

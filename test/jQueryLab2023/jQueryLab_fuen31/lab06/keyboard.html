@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard Event</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Keyboard Event</h1>
+  </header>
+  <div class="container">
+    <input type="text" id="input" placeholder="請輸入" />
+    <div id="target"></div>
+    <script src="../jquery-3.7.1.js"></script>
+    <script>
+      $(function(){
+        // code 
+        $("#input").keyup(function () {
+          // console.log(event.which);
+          // console.log($(this).val());
+          // let content = $(this).val();
+          // $("#target").text(content);
+        });
+        $("#input").keydown(function () {
+          // let content = $(this).val();
+          // $("#target").text(content);
+          if (event.ctrlKey && event.altKey) {
+            console.log("ctrl + alt");
+            $("#target").text("ctrl + alt");
+          }
+        });
+        // ESC 方向鍵 沒辦法偵測
+        $("#input").keypress(function () {
+          // let content = $(this).val();
+          // $("#target").text(content);
+        });
+      })
+    </script>
+  </div>
+</body>
+</html>

@@ -64,6 +64,10 @@
 
         // flitering
         $('li').eq(0).css('background','black');
+
+        $('li').on('mouseenter',function(){
+          console.log($(this).index())
+        })
         
       })
     </script>

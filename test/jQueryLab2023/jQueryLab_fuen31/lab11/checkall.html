@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CheckAll</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    table {
+      border: 2px solid black;
+      width: 500px;
+      margin: 5px;
+      text-align: center;
+    }
+    td {
+      border: 1px solid black;
+    }
+    tr.active {
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CheckAll</h1>
+  </header>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th><input type="checkbox" name="" id="checkAll" /></th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="content">
+          <td><input type="checkbox" class="checkbox" /></td>
+          <td>Gary</td>
+          <td>2022/12/09</td>
+          <td>FUEN25 jQuery</td>
+        </tr>
+        <tr class="content">
+          <td><input type="checkbox" class="checkbox" /></td>
+          <td>Gary</td>
+          <td>2022/12/09</td>
+          <td>FUEN25 jQuery</td>
+        </tr>
+        <tr class="content">
+          <td><input type="checkbox" class="checkbox" /></td>
+          <td>Gary</td>
+          <td>2022/12/09</td>
+          <td>FUEN25 jQuery</td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="../jquery-3.7.1.js"></script>
+    <script>
+      $(function(){
+        // code 
+        let maxLength=$('.checkbox').length;
+        $('.checkbox').on('click',function(){
+          let checked=$(this).prop('checked');
+          if(checked){
+            $(this).closest('tr').addClass('active');
+          }else{
+            $(this).closest('tr').removeClass('active');
+          }
+          let contentLength=$('tr.active').length;
+          if(contentLength==maxLength){
+            $('#checkAll').prop('checked',true);
+          }else{
+            $('#checkAll').prop('checked',false);
+          }
+        })
+
+        $('#checkAll').on('click',function(){
+          let checked=$(this).prop('checked');
+          if(checked){
+            $('.checkbox').prop('checked',true);
+            $('.content').addClass('active');
+          }else{
+            $('.checkbox').prop('checked',false);
+            $('.content').removeClass('active');  
+          }
+        })
+
+      })
+    </script>
+  </div>
+</body>
+</html>

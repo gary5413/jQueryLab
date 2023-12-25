@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AddressBook</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    table {
+      border: 2px solid black;
+      width: 500px;
+      margin: 5px;
+      text-align: center;
+    }
+    .input {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AddressBook</h1>
+  </header>
+  <div class="container">
+    <div class="input">
+      <input type="text" id="name" placeholder="請輸入姓名" />
+    </div>
+    <div class="input">
+      <input type="text" id="phone" placeholder="請輸入電話" />
+    </div>
+    <div class="input">
+      <input type="text" id="address" placeholder="請輸入地址" />
+    </div>
+    <div class="input">
+      <button id="add"><i class="fa-solid fa-user-plus"></i></button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><button id="del">Del</button></td>
+        </tr> -->
+      </tbody>
+    </table>
+    <script src="../jquery-3.7.1.js"></script>
+    <script src="https://kit.fontawesome.com/a260a05f7c.js" crossorigin="anonymous"></script>
+    <script>
+      $(function(){
+        // code 
+        $("#add").on("click", function () {
+          let name = $("#name").val(),
+            phone = $("#phone").val(),
+            address = $("#address").val();
+          let content = `
+          <tr>
+            <td>${name}</td>
+            <td>${phone}</td>
+            <td>${address}</td>
+            <td><button class="del"><i class="fa-solid fa-user-minus"></i></button></td>
+          </tr>
+          `;
+          $("tbody").append(content);
+        });
+        // $("tbody").on("click", ".del", function () {
+        //   $(this).closest("tr").remove();
+        // });
+        $("tbody").on("click", ".del", function () {
+          console.log('123')
+          $(this).closest("tr").remove();
+        });
+      })
+    </script>
+  </div>
+</body>
+</html>
