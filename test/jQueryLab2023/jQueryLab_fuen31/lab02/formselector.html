@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Selector</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Form Selector</h1>
+  </header>
+  <div class="container">
+    <form action="">
+      <div>
+        <input type="checkbox" value="1">1
+        <input type="checkbox" value="2" disabled>2
+        <input type="checkbox" value="3">3
+      </div>
+
+      <div>
+        <input type="radio">A
+        <input type="radio">B
+      </div>
+      <div>
+        <select name="" id="">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+      </div>
+    </form>
+    <hr>
+    <input type="button" value=":checked" id="checked">
+    <input type="button" value=":selected" id="selected">
+    <input type="button" value=":disabled" id="disabled">
+    <script src="../jquery-3.7.1.js"></script>
+    <script>
+      $(function(){
+        // code 
+        $('#checked').on('click',function(){
+          console.log(123);
+          console.log($(':checked'));
+          console.log($(':checked').length);
+        })
+
+        $('#selected').on('click',function(){
+          console.log($(':selected').css('background','pink'));
+        })
+
+        $('#disabled').on('click',function(){
+          console.log($(':disabled'))
+        })
+      })
+    </script>
+  </div>
+</body>
+</html>

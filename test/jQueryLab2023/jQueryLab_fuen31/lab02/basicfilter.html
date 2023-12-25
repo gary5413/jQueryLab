@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Filter</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1>Basic Filter</h1>
+  </header>
+  <div class="container">
+    <ul>
+      <li id="list">list item</li>
+      <li class="list">list item</li>
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+      <li>list item</li>
+    </ul>
+    <ul>
+      <li></li>
+    </ul>
+    <hr>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis ab autem, eaque facilis nulla modi provident reiciendis nemo explicabo sequi, facere aut. Commodi odit, harum saepe error consequatur omnis exercitationem.</p>
+    <p>Hello Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis ab autem, eaque facilis nulla modi provident reiciendis nemo explicabo sequi, facere aut. Commodi odit, harum saepe error consequatur omnis exercitationem.</p>
+    <p><span>FUEN31</span> ipsum, dolor sit amet consectetur adipisicing elit. Omnis ab autem, eaque facilis nulla modi provident reiciendis nemo explicabo sequi, facere aut. Commodi odit, harum saepe error consequatur omnis exercitationem.</p>
+    <p></p>
+    <script src="../jquery-3.7.1.js"></script>
+    <script>
+      $(function(){
+        // code 
+        // basic filter
+        console.log($("*"));
+        console.log($('h1'));
+        console.log($("#list"));
+        console.log($('.list'));
+        console.log($('h1,li'))
+        // eq(n) n從0開始
+        // $('li:eq(1)').css('background','pink');
+        // // lt <3
+        // $('li:lt(3)').css('background','lightgreen');
+        // // gt <3
+        // $('li:gt(3)').css('background','lightblue');
+        // // not
+        // $('li:not(.list)').css('background','yellow');
+     
+        // content filter
+        $('p:contains("Hello")').css('background','pink');
+        $('p:has(span)').css('background','red');
+        $('p:parent').css('background','yellow');
+        $('p:empty').text('empty text');
+        
+        // // child filter
+        // $('li:first-child').css('background','green');
+        // $('li:last-child').css('background','blue');
+        // // nth-child(n) n從1開始
+        // $('li:nth-child(1)').css('background','pink');
+        // // only-child
+        // $('li:only-child').css('background','black');
+
+        // flitering
+        $('li').eq(0).css('background','black');
+        
+      })
+    </script>
+  </div>
+</body>
+</html>
