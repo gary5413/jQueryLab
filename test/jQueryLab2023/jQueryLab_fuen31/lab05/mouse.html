@@ -42,16 +42,20 @@
       $(function(){
         // code 
          // 手機關係少用
-         $("#btn").dblclick(function () {
-          console.log("double click");
-        });
-        // 手機關係少用
-        $("#btn").contextmenu(function () {
-          console.log("right click");
-        });
-        $("#btn").mouseup(function () {
-          console.log("mouseup");
-        });
+        //  $("#btn").dblclick(function () {
+        //   console.log("double click");
+        // });
+        // // 手機關係少用
+        // $("#btn").contextmenu(function () {
+        //   console.log("right click");
+        // });
+        // $("#btn").mouseup(function () {
+        //   console.log("mouseup");
+        // });
+
+        $('#btn').on('hover',function(){
+          console.log('hover')
+        })
 
         let count_overout = 0;
         $("div.overout").mouseover(function () {

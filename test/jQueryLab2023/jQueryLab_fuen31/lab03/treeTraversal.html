@@ -119,10 +119,10 @@
           //   .css("background", "lightblue");
 
           // siblings()
-          $(this)
-            .css("background", "white")
-            .siblings()
-            .css("background", "pink");
+          // $(this)
+          //   .css("background", "white")
+          //   .siblings()
+          //   .css("background", "pink");
         });
 
         $(".box").on("click", function () {
@@ -131,7 +131,7 @@
           // $(this).parent().parent().css("background", "pink");
           console.log($(this).parents());
           // $(this).parentsUntil("table").css("background", "pink");
-          // $(this).closest("tr").css("background", "red");
+          $(this).closest("tr").css("background", "red");
         });
       })
     </script>
