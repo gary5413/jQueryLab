@@ -7,6 +7,7 @@ header{
   background-color: black;
   color: lightgreen;
   padding: 20px;
+  /* 文字的水平對齊 */
   text-align: center;
 }
 .container{

@@ -62,6 +62,11 @@
           });
         });
         // prop()
+        /*
+            像checkbox，radio和select這樣的元素，
+            選中屬性對應“checked”和“selected”，這些也屬於固有屬性，
+            因此需要使用prop方法去操作才能獲得正確的結果。
+            */
         $("#getProp").click(function () {
           // console.log("123");
           let checked = $("#checkbox").prop("checked");

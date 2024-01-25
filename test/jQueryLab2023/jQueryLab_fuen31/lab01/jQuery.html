@@ -12,9 +12,14 @@
   </header>
   <div class="container">
     <h3 class="jq">jQuery</h3>
+    <hr>
+    <h3 class="jqAll">jQuery</h3>
+    <h3 class="jqAll">jQuery</h3>
+    <h3 class="jqAll">jQuery</h3>
+
     <script src="../jquery-3.7.1.js"></script>
     <!-- 後示範 -->
-    <script src="./test.js"></script>
+    <!-- <script src="./test.js"></script> -->
     <script>
       //先示範
       // $('.jq').on('mouseenter',function(){
@@ -23,6 +28,33 @@
       // $('.jq').on('mouseleave',function(){
       //   $('.jq').css('color','black');
       // });
+
+      // 箭頭函數
+      $('.jq').on('mouseenter', ()=>{
+        $('.jq').css('color','lightgreen');
+      })
+      $('.jq').on('mouseleave', ()=>{
+        $('.jq').css('color','black');
+      })
+
+      $('.jqAll').on('mouseenter',function(){
+        $(this).css('color','lightgreen');
+      });
+      $('.jqAll').on('mouseleave',function(){
+        $(this).css('color','black');
+      });
+
+      /*
+        箭頭函數碰到 $(this) 就不行
+        箭頭函式並沒有自己的 this
+        this 會往上找到最近的函數主體作為物件
+      */
+      $('.jqAll').on('mouseenter',function(){
+        $(this).css('color','lightgreen');
+      });
+      $('.jqAll').on('mouseleave',function(){
+        $(this).css('color','black');
+      });
       // 如果要存取 DOM 物件的屬性或方法時須用 this; 而要存取 jQuery 物件之屬性與方法時則須用 $(this)
     </script>
     
